@@ -125,12 +125,20 @@ router.delete('/', async(req, res) => {
 //S: User sin password
 router.post('/', async(req, res) => {
     try {
-        const findUser = await User.findOne({ username: req.body.username });
+        //Toma el username del correo
+        let indexInEmail = req.body.email.indexOf("@");
+        let username = req.body.email.slice(0, indexInEmail);
+        
+        const findUser = await User.findOne({ username: username });
+        
         if (findUser == null) {
+            //Uso de cripto para cifrado del password
             let salt = crypto.randomBytes(16).toString('hex');
             let hash = crypto.pbkdf2Sync(req.body.password, salt, 1000, 64, 'sha512').toString('hex');
+
             const user = new User({
-                username: req.body.username,
+                username: username,
+                email: req.body.email,
                 salt: salt,
                 hash: hash,
                 type: req.body.type,
