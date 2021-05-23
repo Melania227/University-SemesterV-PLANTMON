@@ -53,6 +53,15 @@ router.delete('/', async(req, res) => {
 });
 
 
+/* Cuando se haga el patch para anadir nueva info de plantas se usa esto
+    let newBackgroud = findPlantInfo.background;
+    let newTips = findPlantInfo.tips;
+    newBackgroud.push(req.body.background);
+    newTips.push(req.body.tips);
+ */
+
+
+
 //POST (Insert)
 //E: Info nueva planta
 //S: Nueva planta creada
@@ -63,19 +72,11 @@ router.post('/', async(req, res) => {
         
         if (findPlantInfo == null) {
             
-            //esto es para anadir nuevos, esto no va aca
-            let newBackgroud = findPlantInfo.background;
-            let newTips = findPlantInfo.tips;
-            newBackgroud.push(req.body.background);
-            newTips.push(req.body.tips);
-
             const plant = new PlantInfo({
                 name: req.body.name,
                 family: req.body.family,
-                
-                //esto son listas entonces se construyen antes
-                background: newBackgroud,
-                tips: newTips,
+                background: req.body.backgroud,
+                tips: req.body.tips,
                 
                 //no se como putas saber si algo viene o no en el body HELP
                 temperature: req.body.temperature,
