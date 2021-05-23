@@ -2,7 +2,8 @@ const { response } = require('express');
 const express = require('express');
 const { remove } = require('../Models/Users');
 const router = express.Router();
-const User = require('../Models/Users')
+const User = require('../Models/Users');
+const crypto = require('crypto');
 
 
 
@@ -97,7 +98,7 @@ router.post('/logIn', async(req, res) => {
     if (user.password !== password) return res.status(401).send('Wrong Password');
 
     return res.status(200).json({ "username": user.username, "type": user.type });
-});
+});*/
 
 //DELETE de un user
 //E: username
@@ -116,25 +117,24 @@ router.delete('/', async(req, res) => {
         res.json({ message: error });
     }
 
-}); */
+});
 
 
 //POST (Insert)
 //E: User
 //S: User sin password
 router.post('/', async(req, res) => {
-
     try {
         const findUser = await User.findOne({ username: req.body.username });
-        let salt = crypto.randomBytes(16).toString('hex');
-        let hash = crypto.pbkdf2Sync(req.body.password, salt, 1000, 64, 'sha512').toString('hex');
         if (findUser == null) {
+            let salt = crypto.randomBytes(16).toString('hex');
+            let hash = crypto.pbkdf2Sync(req.body.password, salt, 1000, 64, 'sha512').toString('hex');
             const user = new User({
                 username: req.body.username,
                 salt: salt,
                 hash: hash,
                 type: req.body.type,
-                bornDate: req.body.bornDate
+                creationDate: req.body.creationDate //ESPERAR A TENER EL FORMATO DE FECHA CORRECTO PARA INGRESAR FECHA NACIMIENTO
             });
 
             await user.save(function(err) {
@@ -148,9 +148,9 @@ router.post('/', async(req, res) => {
             }); //metodo de mongoose para guardar 
 
         } else
-            res.json('{ message: error }')
+            res.json('Error1')
     } catch {
-        res.json('{ message: error }');
+        res.json('Error2');
     }
 });
 
