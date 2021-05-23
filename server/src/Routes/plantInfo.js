@@ -63,6 +63,7 @@ router.post('/', async(req, res) => {
         
         if (findPlantInfo == null) {
             
+            //esto es para anadir nuevos, esto no va aca
             let newBackgroud = findPlantInfo.background;
             let newTips = findPlantInfo.tips;
             newBackgroud.push(req.body.background);
