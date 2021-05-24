@@ -69,7 +69,8 @@ router.post('/', async(req, res) => {
                 username: username,
                 plantName: req.body.plantName,
                 type: req.body.type,
-                updates: req.body.updates
+                updates: req.body.updates,
+                image: req.body.image
             });
 
             await manualInventory.save(function(err) {

@@ -24,10 +24,10 @@ const ManualInventorySchema = mongoose.Schema({
             required: true
         }
     }],
-    /* image: {
-        type: image, //no se cual es el tipo de esto
+    image: {
+        type: String,
         required: false
-    } */
+    }
 });
 
 module.exports = mongoose.model('ManualInventory', ManualInventorySchema);
