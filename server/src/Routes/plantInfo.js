@@ -77,12 +77,11 @@ router.post('/', async(req, res) => {
                 family: req.body.family,
                 background: req.body.backgroud,
                 tips: req.body.tips,
-                
-                //no se como putas saber si algo viene o no en el body HELP
                 temperature: req.body.temperature,
                 moisture: req.body.moisture,
                 pressure: req.body.pressure,
-                solarIntensity: req.body.solarIntensity
+                solarIntensity: req.body.solarIntensity,
+                image: req.body.image //link de una plataforma donde se encuentre subida la img
             });
 
             await plant.save(function(err) {

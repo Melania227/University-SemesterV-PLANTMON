@@ -33,10 +33,10 @@ const PlantInfoSchema = mongoose.Schema({
         type: String,
         required: false
     },
-    /* image: {
-        type: image, //no se como representar esto help
+    image: {
+        type: String,
         required: false
-    } */
+    }
 });
 
 module.exports = mongoose.model('PlantInfo', PlantInfoSchema);
