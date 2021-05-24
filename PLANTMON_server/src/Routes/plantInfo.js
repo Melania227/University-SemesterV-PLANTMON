@@ -69,13 +69,12 @@ router.post('/', async(req, res) => {
     try {
         
         const findPlantInfo = await PlantInfo.findOne({ name: req.body.name });
-        
         if (findPlantInfo == null) {
             
             const plant = new PlantInfo({
                 name: req.body.name,
                 family: req.body.family,
-                background: req.body.backgroud,
+                background: req.body.background,
                 tips: req.body.tips,
                 temperature: req.body.temperature,
                 moisture: req.body.moisture,
@@ -86,7 +85,7 @@ router.post('/', async(req, res) => {
 
             await plant.save(function(err) {
                 if (err) {
-                    res.json('ERROR');
+                    res.json(err);
                 } else {
                     savePlant = plant.toObject();
                     res.json(savePlant);

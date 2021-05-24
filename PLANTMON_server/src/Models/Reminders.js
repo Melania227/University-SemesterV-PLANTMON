@@ -14,7 +14,7 @@ const ReminderSchema = mongoose.Schema({
         required: true
     },
     repeat: {
-        type: boolean,
+        type: Boolean,
         required: true
     }
 });

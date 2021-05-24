@@ -67,7 +67,6 @@ router.post('/', async(req, res) => {
         const findReminder = await Reminder.findOne({ username: req.body.username, reason: req.body.reason });
         
         if (findReminder == null) {
-            
             const reminder = new Reminder({
                 username: req.body.username,
                 reason: req.body.reason,

@@ -62,29 +62,21 @@ router.delete('/', async(req, res) => {
 //S: Alerta creada
 router.post('/', async(req, res) => {
     try {
-        
-        const findAlert = await Alert.findOne({ username: username });
-        
-        if (findAlert == null) {
-            const alert = new Alert({
-                username: req.body.username, 
-                reason: req.body.reason, 
-                
-                //que pasa si esto no viene? HELP
-                affectedPlant: req.body.affectedPlant
-            });
+        const alert = new Alert({
+            username: req.body.username, 
+            reason: req.body.reason, 
+            affectedPlant: req.body.affectedPlant
+        });
 
-            await alert.save(function(err) {
-                if (err) {
-                    res.json('ERROR');
-                } else {
-                    saveAlert = alert.toObject();
-                    res.json(saveAlert);
-                }
-            }); //metodo de mongoose para guardar 
-
-        } else
-            res.json('Error1')
+        await alert.save(function(err) {
+            if (err) {
+                res.json('ERROR');
+            } else {
+                saveAlert = alert.toObject();
+                res.json(saveAlert);
+            }
+        }); //metodo de mongoose para guardar 
+        
     } catch {
         res.json('Error2');
     }

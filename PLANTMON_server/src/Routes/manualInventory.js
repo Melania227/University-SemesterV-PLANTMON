@@ -66,7 +66,7 @@ router.post('/', async(req, res) => {
         
         if (findManualInventory == null) {
             const manualInventory = new ManualInventory({
-                username: username,
+                username: req.body.username,
                 plantName: req.body.plantName,
                 type: req.body.type,
                 updates: req.body.updates,

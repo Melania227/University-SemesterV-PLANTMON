@@ -64,7 +64,7 @@ router.post('/', async(req, res) => {
         
         if (findSensorsInventory == null) {
             const sensorsInventory = new SensorsInventory({
-                username: username,
+                username: req.body.username,
                 plantName: req.body.plantName,
                 type: req.body.type,
                 updates: req.body.updates,
