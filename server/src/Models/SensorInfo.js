@@ -29,11 +29,7 @@ const SensorInfoSchema = mongoose.Schema({
     solarIntensity: {
         type: String,
         required: false
-    },
-    /* image: {
-        type: image, //no se cual es el tipo de esto
-        required: false
-    } */
+    }
 });
 
 module.exports = mongoose.model('SensorInfo', SensorInfoSchema);
