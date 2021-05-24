@@ -68,7 +68,8 @@ router.post('/', async(req, res) => {
                 plantName: req.body.plantName,
                 type: req.body.type,
                 updates: req.body.updates,
-                associatedSensors: req.body.associatedSensors
+                associatedSensors: req.body.associatedSensors,
+                image: req.body.image
             });
 
             await sensorsInventory.save(function(err) {

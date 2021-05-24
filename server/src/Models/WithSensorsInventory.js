@@ -27,11 +27,11 @@ const SensorsInventorySchema = mongoose.Schema({
     associatedSensors: {
         type: [String],
         required: true
-    }
-    /* image: {
-        type: Image, //no se cual es el tipo de esto
+    },
+    image: {
+        type: String,
         required: false
-    }, */
+    }
 });
 
 module.exports = mongoose.model('SensorsInventory', SensorsInventorySchema);
