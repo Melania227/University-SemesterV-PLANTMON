@@ -1,0 +1,42 @@
+.navbar{
+    background-color: #75A72F;
+}
+
+.nav-link{
+    color: black;
+    font-weight: 500;
+    font-size: 24px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.navbar {padding: 0 0;}
+
+button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.iconNav{
+    font-size: 50px;
+}
+
+.iconLogout{
+    font-size: 70px;
+    color: black;
+}
+
+.active{
+    color: white;
+    background-color: #3A5219;
+    border-bottom-style: solid;
+    border-bottom-width: 8px;
+    border-bottom-color: white;
+    
+}
+
+/* .prueba{
+    justify-content: right;
+    display: block;
+    float: right;
+    flex: auto;
+} */
