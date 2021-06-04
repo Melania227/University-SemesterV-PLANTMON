@@ -1,1 +1,30 @@
-<p>inventory works!</p>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">  
+    
+    <!-- ROBOTO FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <app-header></app-header>
+    <div class="container p-5 square">
+        <div *ngFor="let plant of plantInventory; index as i" class="plantsRegistered my-2">
+            <div class="card text-left">
+                <div class="btnGroup">
+                    <button class="btn mx-2 my-3"><i class="fas fa-exclamation-circle"></i></button>
+                    <button class="btn mx-2 my-3"><i class="fas fa-pencil-alt"></i></button>
+                    <button class="btn mx-2 my-3"><i class="fas fa-times-circle"></i></button>
+                </div>
+                <img class="card-img-top" src="../../../assets/imgs/default-img-plant.jpg" alt="">
+                <div class="card-body mt-3">
+                  <h4 class="card-title">{{plant.plantName}}</h4>
+                  <p class="card-text">{{plant.updates[plant.updates.length-1].description}}</p>
+                </div>
+              </div>
+        </div>
+        <div class="text-center">
+            <button class="btn btnAdd px-5 py-4 m-5"><i class="fas fa-plus"></i></button>
+        </div>
+    </div>
+</body>
