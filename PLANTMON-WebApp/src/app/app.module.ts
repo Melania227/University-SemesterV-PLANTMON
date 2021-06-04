@@ -23,6 +23,7 @@ import { SAddPlantComponent } from './components/monitoring/s-add-plant/s-add-pl
 import { SPlantDetailComponent } from './components/monitoring/s-plant-detail/s-plant-detail.component';
 import { SPlantEditComponent } from './components/monitoring/s-plant-edit/s-plant-edit.component';
 import { SPlantPreviewComponent } from './components/monitoring/s-plant-preview/s-plant-preview.component';
+import { InitPageComponent } from './components/init-page/init-page.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { SPlantPreviewComponent } from './components/monitoring/s-plant-preview/
     SAddPlantComponent,
     SPlantDetailComponent,
     SPlantEditComponent,
-    SPlantPreviewComponent
+    SPlantPreviewComponent,
+    InitPageComponent
   ],
   imports: [
     BrowserModule,
