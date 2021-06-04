@@ -1,0 +1,43 @@
+.responsive {
+    width: 100%;
+    height: auto;
+}
+
+.body{
+    background-image: url('../../../assets/imgs/circle-background.png');
+}
+
+.card{
+    margin: 0 auto;
+    max-width: 1000px;
+    height: 400px;
+    background-color: hsl(39, 50%, 57%,0.6);
+    font-family:  'Roboto', sans-serif;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 40px;
+}
+
+.card-body h4{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    font-size: 60px;
+    color: black;
+}
+
+button{
+    background-color: #3A5219;
+    color: white;
+    font-weight: 300;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+button:hover {
+    color: white;
+}
