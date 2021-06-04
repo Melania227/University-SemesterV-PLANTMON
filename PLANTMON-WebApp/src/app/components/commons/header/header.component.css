@@ -1,5 +1,8 @@
 .navbar{
     background-color: #75A72F;
+    -webkit-box-shadow: 0 8px 6px -6px rgb(117, 117, 117);
+    -moz-box-shadow: 0 8px 6px -6px rgb(117, 117, 117);
+    box-shadow: 0 8px 6px -6px rgb(117, 117, 117);
 }
 
 .nav-link{
@@ -33,10 +36,3 @@ button:focus {
     border-bottom-color: white;
     
 }
-
-/* .prueba{
-    justify-content: right;
-    display: block;
-    float: right;
-    flex: auto;
-} */
