@@ -6,3 +6,7 @@
 .header-img{
     overflow:auto
 }
+
+.homeBody{
+    background-image: url('../../../assets/imgs/circle-background.png');
+}
