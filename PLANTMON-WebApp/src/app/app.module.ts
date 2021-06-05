@@ -24,6 +24,7 @@ import { SPlantDetailComponent } from './components/monitoring/s-plant-detail/s-
 import { SPlantEditComponent } from './components/monitoring/s-plant-edit/s-plant-edit.component';
 import { SPlantPreviewComponent } from './components/monitoring/s-plant-preview/s-plant-preview.component';
 import { InitPageComponent } from './components/init-page/init-page.component';
+import { NoReminderAvailableComponent } from './components/reminders/no-reminder-available/no-reminder-available.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { InitPageComponent } from './components/init-page/init-page.component';
     SPlantDetailComponent,
     SPlantEditComponent,
     SPlantPreviewComponent,
-    InitPageComponent
+    InitPageComponent,
+    NoReminderAvailableComponent
   ],
   imports: [
     BrowserModule,
