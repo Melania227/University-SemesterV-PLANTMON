@@ -17,11 +17,12 @@ body{
     border-radius: 20px;
 }
 .card-img-top{
-    max-height: 300px;
-    max-width: 300px;
+    max-height: 190px;
+    max-width: 260px;
     border-radius: 20px;
-    margin-top: 20px;
+    margin-top: 30px;
     margin-bottom: 20px;
+    /* border-style: solid; */
 }
 
 .btnGroup button{

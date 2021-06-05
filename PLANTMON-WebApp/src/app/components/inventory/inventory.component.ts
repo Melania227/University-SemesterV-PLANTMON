@@ -13,15 +13,15 @@ export class InventoryComponent implements OnInit {
       "type": "Crassulaceae",
       "updates": [
         {
-            "date": "10/05/2021",
+            "date": Date.now(),
             "description": "Compra de la planta Echeveria, es pequeña."
         },
         {
-            "date": "11/05/2021",
+            "date": Date.now(),
             "description": "Movimiento de planta, se comenzó a secar."
         },
         {
-            "date": "12/05/2021",
+            "date": Date.now(),
             "description": "Compra de la planta Echeveria, es pequeña."
         }
       ],
@@ -33,15 +33,15 @@ export class InventoryComponent implements OnInit {
       "type": "Crassulaceae",
       "updates": [
         {
-            "date": "10/05/2021",
+            "date": Date.now(),
             "description": "Compra de la planta Echeveria, es pequeña."
         },
         {
-            "date": "11/05/2021",
+            "date": Date.now(),
             "description": "Movimiento de planta, se comenzó a secar."
         },
         {
-            "date": "12/05/2021",
+            "date": Date.now(),
             "description": "Movimiento de planta, se comenzó a secar."
         }
       ],
@@ -53,15 +53,15 @@ export class InventoryComponent implements OnInit {
       "type": "Crassulaceae",
       "updates": [
         {
-            "date": "10/05/2021",
+            "date": Date.now(),
             "description": "Compra de la planta Echeveria, es pequeña."
         },
         {
-            "date": "11/05/2021",
+            "date": Date.now(),
             "description": "Movimiento de planta, se comenzó a secar."
         },
         {
-            "date": "12/05/2021",
+            "date": Date.now(),
             "description": "Planta presenta mejoras en la nueva localización."
         }
       ],
