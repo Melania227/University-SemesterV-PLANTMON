@@ -1,6 +1,7 @@
 import { RouterModule, Routes } from "@angular/router";
 import { HomeComponent } from "./components/home/home.component";
 import { InformationComponent } from "./components/information/information.component";
+import { PlantInfoDetailsComponent } from "./components/information/plant-info-details/plant-info-details.component";
 import { InitPageComponent } from "./components/init-page/init-page.component";
 import { InventoryComponent } from "./components/inventory/inventory.component";
 import { MonitoringComponent } from "./components/monitoring/monitoring.component";
@@ -11,6 +12,7 @@ const APP_ROUTES : Routes = [
     {path: 'inventory', component: InventoryComponent},
     {path: 'monitoring', component: MonitoringComponent},
     {path: 'info', component: InformationComponent},
+    {path: 'info/:id', component: PlantInfoDetailsComponent},
     {path: 'records', component: RemindersComponent},
     {path: 'init', component: InitPageComponent},
     {path: '**', pathMatch: 'full', redirectTo: 'init'} /* PREDETERMINADA */
