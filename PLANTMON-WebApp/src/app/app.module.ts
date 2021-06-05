@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
+import { APP_ROUTING } from './app.routes';
+
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/commons/header/header.component';
 import { HomeComponent } from './components/home/home.component';
@@ -54,7 +56,8 @@ import { NoReminderAvailableComponent } from './components/reminders/no-reminder
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    APP_ROUTING
   ],
   providers: [],
   bootstrap: [AppComponent]

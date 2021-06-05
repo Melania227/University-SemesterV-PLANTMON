@@ -1,1 +1,39 @@
-<p>plant-info-details works!</p>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">  
+    
+    <!-- ROBOTO FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <app-header></app-header>
+    <div class="square container">
+        <div class="card text-left">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-3 options pl-4 m-0">
+                        <div *ngFor="let infoIn of info" class="btnGroup text-center">
+                            <button class="btn">{{infoIn.name}}</button>
+                        </div>
+                    </div>
+                    <div class="col-9 p-0 m-0">
+                        <div class="card-body text">
+                            <h2 class="card-title">{{plantInfo.name}}<i class="fas fa-leaf"></i></h2>
+                            <h5>Datos históricos</h5>
+                            <p *ngFor="let back of plantInfo.background" class="card-text">{{back}}</p>
+                            <h5>Consejos</h5>
+                            <p *ngFor="let tips of plantInfo.tips" class="card-text">{{tips}}</p>
+                            <h5>Condiciones ambientales perfectas</h5>
+                            <p>{{plantInfo.temperature}}</p>
+                            <p>{{plantInfo.moisture}}</p>
+                            <p>{{plantInfo.pressure}}</p>
+                            <p>{{plantInfo.solarIntensity}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+</body>
