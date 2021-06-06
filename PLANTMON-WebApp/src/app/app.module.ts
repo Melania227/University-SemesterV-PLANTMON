@@ -27,6 +27,7 @@ import { SPlantEditComponent } from './components/monitoring/s-plant-edit/s-plan
 import { SPlantPreviewComponent } from './components/monitoring/s-plant-preview/s-plant-preview.component';
 import { InitPageComponent } from './components/init-page/init-page.component';
 import { NoReminderAvailableComponent } from './components/reminders/no-reminder-available/no-reminder-available.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,9 @@ import { NoReminderAvailableComponent } from './components/reminders/no-reminder
   imports: [
     BrowserModule,
     AppRoutingModule,
-    APP_ROUTING
+    APP_ROUTING,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

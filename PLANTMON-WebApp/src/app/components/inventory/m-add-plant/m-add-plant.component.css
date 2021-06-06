@@ -1,0 +1,83 @@
+body{
+    background-image: url('../../../../assets/imgs/circle-background.png');
+}
+
+.square{
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    margin-top: 50px;
+}
+
+.card{
+    margin: 0 auto;
+    max-width: 1200px;
+    background-color: hsl(39, 50%, 57%,0.7);
+    flex-direction: row;
+    font-family:  'Roboto', sans-serif;
+    font-size: 30px;
+    border-radius: 20px;
+}
+
+.sideInfo{
+    margin-left: 50px;
+    margin-top: 25px;
+}
+
+.sideInfo .card-img-top{
+    max-height: 200px;
+    max-width: 200px;
+    border-radius: 20px;
+    margin-left: 70px;
+    margin-top: 50px;
+}
+
+.btnGroup button{
+    font-size: 30px;
+    display: block;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.card-body p{
+    font-size: 20px;
+    font-weight: light;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card h4{
+    font-size: 40px;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn{
+    background: #3A5219;
+    color: white;
+    font-weight: 300;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-right: 30px;
+}
+
+.alert p{
+    color: red;
+    font-size: 15px;
+}
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+border-left: 5px solid #a94442; /* red */
+}
+
+.alert div {
+background-color: #fed3d3;
+color: #820000;
+padding: 1rem;
+margin-bottom: 1rem;
+}
