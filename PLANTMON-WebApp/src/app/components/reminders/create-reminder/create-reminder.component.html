@@ -1,1 +1,72 @@
-<p>create-reminder works!</p>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">  
+    
+    <!-- ROBOTO FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
+
+    <!-- PARA EL MUTISELECT -->
+
+</head>
+
+<body>
+    <app-header></app-header>
+    <div class="container p-5 square">
+        <div class="container my-5">
+            <div class="card text-left">
+                <div class="sideInfo">
+                    <h4 class="card-title">Crear recordatorio</h4>
+                    <img class="card-img-top" src="../../../../assets/imgs/clock-icon.png" alt="">
+                </div>
+                <div class="card-body m-5">
+                    <form #plantForm="ngForm">
+                        <div class="form-group mb-3">
+                            <label for="motivo">Motivo del recordatorio</label>
+                            <textarea required ngModel name="motivo" #motivo="ngModel" id="motivo" class="form-control" id="motivo" rows="4" placeholder="¡Ingresa aquí el motivo de tu recordatorio!"></textarea>
+                            <div class="alert" *ngIf="motivo.touched && !motivo.valid">
+                                <p class="m-0">(*) Espacio requerido</p>
+                            </div>
+                        </div>
+                        <h5 class="mt-5">Elija los días de la semana en el que quiere este recordatorio: </h5>
+                        <div class="form-check form-check-inline">
+                            <input ngModel required name="lunesOpt" #lunesOpt="ngModel" class="form-check-input" type="checkbox" id="lunesOpt" value="lunesOpt">
+                            <label class="form-check-label" for="lunesOpt">Lunes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input ngModel required name="martesOpt" #martesOpt="ngModel" class="form-check-input" type="checkbox" id="martesOpt" value="martesOpt">
+                            <label class="form-check-label" for="martesOpt">Martes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input ngModel required name="miercolesOpt" #miercolesOpt="ngModel" class="form-check-input" type="checkbox" id="miercolesOpt" value="miercolesOpt">
+                            <label class="form-check-label" for="miercolesOpt">Miércoles</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input ngModel required name="juevesOpt" #juevesOpt="ngModel" class="form-check-input" type="checkbox" id="juevesOpt" value="juevesOpt">
+                            <label class="form-check-label" for="juevesOpt">Jueves</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input ngModel required name="viernesOpt" #viernesOpt="ngModel" class="form-check-input" type="checkbox" id="viernesOpt" value="viernesOpt">
+                            <label class="form-check-label" for="viernesOpt">Viernes</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input ngModel required name="sabadoOpt" #sabadoOpt="ngModel" class="form-check-input" type="checkbox" id="sabadoOpt" value="sabadoOpt">
+                            <label class="form-check-label" for="sabadoOpt">Sábado</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input ngModel required name="domingoOpt" #domingoOpt="ngModel" class="form-check-input" type="checkbox" id="domingoOpt" value="domingoOpt">
+                            <label class="form-check-label" for="domingoOpt">Domingo</label>
+                        </div>
+                        <h5 class="mt-5">¿Desea que el recordatorio se repita de ahora en adelante los días seleccionados?: </h5>
+                        <div class="form-check mb-5">
+                            <input ngModel name="repeat" #repeat="ngModel" class="form-check-input" type="checkbox" id="repeat" value="true">
+                            <label class="form-check-label" for="repeat">Repetir</label>
+                        </div>
+                        <button type="submit" class="btn" (click)="sendData(plantForm)" [disabled]="!motivo.valid || !(lunesOpt.valid || martesOpt.valid || miercolesOpt.valid || juevesOpt.valid || viernesOpt.valid || sabadoOpt.valid || domingoOpt.valid)">Guardar</button>
+                        <button class="btn" [routerLink]="['/reminders']">Volver</button>
+                    </form>
+                </div>
+            </div>
+        </div>        
+    </div>
+</body>
+
