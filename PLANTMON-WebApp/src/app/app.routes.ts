@@ -19,6 +19,7 @@ const APP_ROUTES : Routes = [
     {path: 'init', component: InitPageComponent},
     {path: 'addInventoryPlant', component: MAddPlantComponent},
     {path: 'addMonitoringPlant', component: SAddPlantComponent},
+    /* {path: 'addReminder', component: }, */
     {path: '**', pathMatch: 'full', redirectTo: 'addMonitoringPlant'} /* PREDETERMINADA */
 ];
 
