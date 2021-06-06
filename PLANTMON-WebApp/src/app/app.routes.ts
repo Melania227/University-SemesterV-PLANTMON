@@ -6,6 +6,7 @@ import { InitPageComponent } from "./components/init-page/init-page.component";
 import { InventoryComponent } from "./components/inventory/inventory.component";
 import { MAddPlantComponent } from "./components/inventory/m-add-plant/m-add-plant.component";
 import { MonitoringComponent } from "./components/monitoring/monitoring.component";
+import { SAddPlantComponent } from "./components/monitoring/s-add-plant/s-add-plant.component";
 import { RemindersComponent } from "./components/reminders/reminders.component";
 
 const APP_ROUTES : Routes = [
@@ -17,7 +18,8 @@ const APP_ROUTES : Routes = [
     {path: 'records', component: RemindersComponent},
     {path: 'init', component: InitPageComponent},
     {path: 'addInventoryPlant', component: MAddPlantComponent},
-    {path: '**', pathMatch: 'full', redirectTo: 'addInventoryPlant'} /* PREDETERMINADA */
+    {path: 'addMonitoringPlant', component: SAddPlantComponent},
+    {path: '**', pathMatch: 'full', redirectTo: 'addMonitoringPlant'} /* PREDETERMINADA */
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, {useHash:true});
