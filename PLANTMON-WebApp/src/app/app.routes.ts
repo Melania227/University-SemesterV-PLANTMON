@@ -5,10 +5,12 @@ import { PlantInfoDetailsComponent } from "./components/information/plant-info-d
 import { InitPageComponent } from "./components/init-page/init-page.component";
 import { InventoryComponent } from "./components/inventory/inventory.component";
 import { MAddPlantComponent } from "./components/inventory/m-add-plant/m-add-plant.component";
+import { LoginComponent } from "./components/login/login.component";
 import { MonitoringComponent } from "./components/monitoring/monitoring.component";
 import { SAddPlantComponent } from "./components/monitoring/s-add-plant/s-add-plant.component";
 import { CreateReminderComponent } from "./components/reminders/create-reminder/create-reminder.component";
 import { RemindersComponent } from "./components/reminders/reminders.component";
+import { SignUpComponent } from "./components/sign-up/sign-up.component";
 
 const APP_ROUTES : Routes = [
     {path: 'home', component: HomeComponent},
@@ -21,7 +23,9 @@ const APP_ROUTES : Routes = [
     {path: 'addInventoryPlant', component: MAddPlantComponent},
     {path: 'addMonitoringPlant', component: SAddPlantComponent},
     {path: 'addReminder', component: CreateReminderComponent},
-    {path: '**', pathMatch: 'full', redirectTo: 'addReminder'} /* PREDETERMINADA */
+    {path: 'login', component: LoginComponent},
+    {path: 'signup', component: SignUpComponent},
+    {path: '**', pathMatch: 'full', redirectTo: 'signup'} /* PREDETERMINADA */
 ];
 
 export const APP_ROUTING = RouterModule.forRoot(APP_ROUTES, {useHash:true});
