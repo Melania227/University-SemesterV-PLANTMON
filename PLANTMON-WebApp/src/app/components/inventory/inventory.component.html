@@ -13,7 +13,7 @@
             <div class="card text-left">
                 <div class="btnGroup">
                     <button class="btn mx-2 my-3" [routerLink]="['/detailInventoryPlant', plant.plantName]"><i class="fas fa-exclamation-circle"></i></button>
-                    <button class="btn mx-2 my-3" [routerLink]="['/addInventoryPlant']"><i class="fas fa-pencil-alt"></i></button>
+                    <button class="btn mx-2 my-3" [routerLink]="['/editInventoryPlant', plant.plantName]"><i class="fas fa-pencil-alt"></i></button>
                     <button class="btn mx-2 my-3"><i class="fas fa-times-circle"></i></button>
                 </div>
                 <img *ngIf="i%2==0" class="card-img my-4" src="../../../../assets/imgs/plant-icon.png" alt="">
