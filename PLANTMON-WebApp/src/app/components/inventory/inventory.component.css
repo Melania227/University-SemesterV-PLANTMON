@@ -16,9 +16,9 @@ body{
     font-family:  'Roboto', sans-serif;
     border-radius: 20px;
 }
-.card-img-top{
+img{
     max-height: 190px;
-    max-width: 260px;
+    max-width: 190px;
     border-radius: 20px;
     margin-top: 30px;
     margin-bottom: 20px;
