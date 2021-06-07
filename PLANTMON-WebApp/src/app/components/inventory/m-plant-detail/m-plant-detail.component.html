@@ -13,7 +13,7 @@
             <div class="plantGroup">
                 <img class="card-img-top mx-4" src="../../../assets/imgs/default-img-plant.jpg" alt="">
                 <div class="card-body">
-                    <h4 class="card-title">{{plant.plantName}}</h4>
+                    <h4 class="card-title">{{id}}</h4>
                 </div>
             </div>
             
@@ -22,7 +22,7 @@
                     <h4 class="card-title">{{update.date | date:'fullDate'}}</h4>
                     <p class="card-text">{{update.description}}</p>
                 </div>
-                <button class="btn">Volver</button>
+                <button class="btn" [routerLink]="['/inventory']">Volver</button>
             </div>
         </div>
     </div>
