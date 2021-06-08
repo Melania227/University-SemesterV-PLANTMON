@@ -4,3 +4,7 @@ export interface Reminder{
     day: string[];
     repeat: boolean
   }
+
+export interface onlyUsername{
+  username: string;
+}
