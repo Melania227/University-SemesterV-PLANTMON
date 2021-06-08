@@ -23,9 +23,9 @@ router.get('/', async(req, res) => {
 //GET de reminders
 //E:  
 //S: Los reminders de un user especifico
-router.get('/byUser', async(req, res) => {
+router.get('/:username', async(req, res) => {
     try {
-        const reminder = await Reminder.find({ username: req.body.username });
+        const reminder = await Reminder.find({ username: req.params.username });
         console.log(reminder);
         res.json(reminder);
     } catch (error) {
