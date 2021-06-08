@@ -50,8 +50,9 @@ export class ReminderService {
     return this.remindersTemp;
   }
 
-  getReminder(id: string): Reminder{
-    return this.remindersTemp[3];
+  getRemindersByUser(user: string): Observable<Reminder[]>{
+    console.log(this.URL+'reminders/:'+user);
+    return this.http.get<Reminder[]>(this.URL+'reminders/:'+user);
   }
 
   /* Create  */
