@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { ReminderService } from 'src/app/services/reminder.service';
-import { Reminder } from "../../../models/reminder.model";
+import { Injectable } from '@angular/core';
+import { Reminder } from "../models/reminder.model";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
-@Component({
-  selector: 'app-notification',
-  templateUrl: './notification.component.html',
-  styleUrls: ['./notification.component.css']
+@Injectable({
+  providedIn: 'root'
 })
-export class NotificationComponent implements OnInit {
-  reminders: Reminder[] = [
+export class ReminderService {
+  remindersTemp: Reminder[] = [
     {
       username: "Patito",
       reason: "Regar planta dos mil novecientas veces para que no se muera",
@@ -40,14 +39,25 @@ export class NotificationComponent implements OnInit {
       repeat: true
     }
   ];
-  today: number = Date.now();
 
-  constructor(
-    //private _reminderService: ReminderService
-  ) { }
+  private URL: string = 'http://localhost:4000/';
 
-  ngOnInit(): void {
-    //this.reminders = this._reminderService.getReminders();
+  constructor(private http: HttpClient){
   }
+
+  /* Getters */
+  getReminders(): Reminder[]{
+    return this.remindersTemp;
+  }
+
+  getReminder(id: string): Reminder{
+    return this.remindersTemp[3];
+  }
+
+  /* Create  */
+  newReminder(reminder:Reminder){
+    return this.http.post<any>(this.URL+'reminders/', reminder);
+  }
+
 
 }

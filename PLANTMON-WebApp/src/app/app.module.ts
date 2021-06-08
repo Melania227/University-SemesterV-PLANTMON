@@ -30,6 +30,9 @@ import { NoReminderAvailableComponent } from './components/reminders/no-reminder
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateReminderComponent } from './components/reminders/create-reminder/create-reminder.component';
 
+import { ReminderService } from "./services/reminder.service";
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -62,9 +65,12 @@ import { CreateReminderComponent } from './components/reminders/create-reminder/
     AppRoutingModule,
     APP_ROUTING,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    ReminderService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
