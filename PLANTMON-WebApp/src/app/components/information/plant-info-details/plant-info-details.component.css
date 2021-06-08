@@ -1,0 +1,68 @@
+body{
+    background-image: url('../../../../assets/imgs/circle-background.png');
+}
+
+.responsive {
+    width: 100%;
+    height: auto;
+}
+
+.card-title i{
+    padding-left: 10px;
+    color: #75A72F;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.btnGroup button{
+    font-size: 30px;
+    display: block;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+button{
+    width: 100%;
+    background: white;
+    font-size: 30px;
+    margin: 0;
+    margin-bottom: 5px;
+    size: inherit;
+    font-family: 'Roboto', sans-serif;
+    border-width: 2px;
+    border-style: solid;
+    border-bottom-color: black;
+}
+
+.square{
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    margin-top: 50px;
+    padding: 90px;
+}
+
+.card{
+    flex-direction: row;
+    padding: 0;
+}
+
+.card-body{
+    padding: 10px;
+}
+
+img{
+    border-radius: 10px;
+}
+
+.options{
+    border-right-style: solid;
+    border-color: black;
+    border-right-width: 1px;
+}
+
+.text{
+    padding-left: 20px;
+}

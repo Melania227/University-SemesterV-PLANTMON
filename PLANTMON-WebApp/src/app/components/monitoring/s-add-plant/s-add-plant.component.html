@@ -1,0 +1,68 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">  
+    
+    <!-- ROBOTO FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500&display=swap" rel="stylesheet">
+
+    <!-- PARA EL MUTISELECT -->
+
+</head>
+
+<body>
+    <app-header></app-header>
+    <div class="container p-5 square">
+        <div class="container my-5">
+            <div class="card text-left">
+                <div class="sideInfo">
+                    <h4 class="card-title">Creación de planta</h4>
+                    <img class="card-img-top" src="../../../../assets/imgs/plant-icon.png" alt="">
+                </div>
+                <div class="card-body m-5">
+                    <form #plantForm="ngForm">
+                        <div class="form-group mb-3">
+                            <label for="nombrePlanta">Nombre de la planta</label>
+                            <input required ngModel name="nombrePlanta" #nombrePlanta="ngModel" id="nombrePlanta" type="text" class="form-control" placeholder="Ingrese el nombre de su planta">
+                            <div class="alert" *ngIf="nombrePlanta.touched && !nombrePlanta.valid">
+                                <p class="m-0">(*) Espacio requerido</p>
+                            </div>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="familiaPlanta">Familia</label>
+                            <input required ngModel name="familiaPlanta" #familiaPlanta="ngModel" id="familiaPlanta" type="text" class="form-control" placeholder="Ingrese la familia a la que pertenece su planta">
+                            <div class="alert" *ngIf="familiaPlanta.touched && !familiaPlanta.valid">
+                                <p class="m-0">(*) Espacio requerido</p>
+                            </div>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input ngModel required name="sensor1" #sensor1="ngModel" class="form-check-input" type="checkbox" id="sensor1" value="sensor1">
+                            <label class="form-check-label" for="sensor1">1</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input ngModel required name="sensor2" #sensor2="ngModel" class="form-check-input" type="checkbox" id="sensor2" value="sensor2">
+                            <label class="form-check-label" for="sensor2">2</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input ngModel required name="sensor3" #sensor3="ngModel" class="form-check-input" type="checkbox" id="sensor3" value="sensor3">
+                            <label class="form-check-label" for="sensor3">3</label>
+                          </div>
+                          <div class="form-check form-check-inline">
+                            <input ngModel required name="sensor4" #sensor4="ngModel" class="form-check-input" type="checkbox" id="sensor4" value="sensor4">
+                            <label class="form-check-label" for="sensor4">4</label>
+                          </div>
+                        <div class="form-group mb-3">
+                            <label for="descripcion">Actualización</label>
+                            <textarea required ngModel name="descripcion" #descripcion="ngModel" id="descripcion" class="form-control" id="descripcion" rows="4" placeholder="¡Ingresa la primera actualización sobre su planta!"></textarea>
+                            <div class="alert" *ngIf="descripcion.touched && !descripcion.valid">
+                                <p class="m-0">(*) Espacio requerido</p>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn" (click)="sendData(plantForm)" [disabled]="!nombrePlanta.valid || !familiaPlanta.valid || !descripcion.valid || !(sensor1.valid || sensor2.valid || sensor3.valid || sensor4.valid)">Guardar</button>
+                        <button class="btn" [routerLink]="['/monitoring']">Volver</button>
+                    </form>
+                </div>
+            </div>
+        </div>        
+    </div>
+</body>
+

@@ -1,0 +1,68 @@
+body{
+    background-image: url('../../../../assets/imgs/circle-background.png');
+}
+
+.square{
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    margin-top: 50px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.card{
+    margin: 0 auto;
+    max-width: 900px;
+    background-color: hsl(39, 50%, 57%,0.7);
+    flex-direction: row;
+    font-family:  'Roboto', sans-serif;
+    border-radius: 20px;
+    padding: 100px;
+}
+.card-img-top{
+    max-height: 300px;
+    max-width: 300px;
+    padding-top: 30px;
+    margin-bottom: 20px;
+}
+
+.btnGroup button{
+    font-size: 30px;
+    display: block;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.card-body p{
+    font-size: 20px;
+    font-weight: light;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card-body h4{
+    font-size: 60px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+.btnAdd{
+    background: #82AB48;
+    border-radius: 20px;
+    font-size: 30px;
+}
+
+.imgNoPlant{
+    background-color: #87A360;
+    border-style: solid;
+    height: 400px;
+    width: 400px;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 50%;
+    float: left;
+    shape-outside: border-box;
+}

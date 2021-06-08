@@ -1,0 +1,29 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">  
+    
+    <!-- ROBOTO FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <app-header></app-header>
+    <div class="container square">
+        <div class="card text-left">
+            <div class="plantGroup">
+                <img class="card-img-top mx-4" src="../../../assets/imgs/default-img-plant.jpg" alt="">
+                <div class="card-body">
+                    <h4 class="card-title">{{id}}</h4>
+                </div>
+            </div>
+            
+            <div class="card-body mt-3">
+                <div class="mb-5" *ngFor="let update of updates">
+                    <h4 class="card-title">{{update.date | date:'fullDate'}}</h4>
+                    <p class="card-text">{{update.description}}</p>
+                </div>
+                <button class="btn" [routerLink]="['/inventory']">Volver</button>
+            </div>
+        </div>
+    </div>
+</body>
