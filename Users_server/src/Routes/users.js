@@ -85,20 +85,21 @@ router.get('/admins', async(req, res) => {
         res.json({ message: error });
     }
 
-});
+});*/
 
 //GET logIn de un user
 //E: username, password 
 //S: User sin password
 router.post('/logIn', async(req, res) => {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ email });
     if (!user) return res.status(401).send('The username doen\' exists');
-    if (user.password !== password) return res.status(401).send('Wrong Password');
-
+    let salt = user.salt;
+    let hash = crypto.pbkdf2Sync(password, salt, 1000, 64, 'sha512').toString('hex');
+    if (user.hash !== hash) return res.status(401).send('Wrong Password');
     return res.status(200).json({ "username": user.username, "type": user.type });
-});*/
+});
 
 //DELETE de un user
 //E: username
@@ -142,7 +143,7 @@ router.post('/', async(req, res) => {
                 salt: salt,
                 hash: hash,
                 type: req.body.type,
-                creationDate: req.body.creationDate //ESPERAR A TENER EL FORMATO DE FECHA CORRECTO PARA INGRESAR FECHA NACIMIENTO
+                birthDate: new Date(req.body.birthDate)
             });
 
             await user.save(function(err) {
