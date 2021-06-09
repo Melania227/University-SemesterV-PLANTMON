@@ -25,4 +25,19 @@ export class NotificationComponent implements OnInit {
     });
   }
 
+  deleteReminder(reminder: string){
+      /* Lo enviamos al servidor de BD */
+    let userActual =  localStorage.getItem('username');
+
+    this._reminderService.deleteReminder(userActual, reminder).subscribe(
+        res => {
+          console.log(res);
+        },
+        err => console.log(err)
+    )
+
+    /* this.popNotificationService.success("User successfully created");*/
+    window.location.reload();
+  }
+
 }

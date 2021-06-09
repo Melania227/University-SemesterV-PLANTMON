@@ -12,7 +12,7 @@
     <div *ngFor="let reminder of reminders; index as i">
         <div class="row mt-4">
             <div class="card text-left">
-                <button class="btn mx-2"><i class="fas fa-times"></i></button>
+                <button class="btn mx-2" (click)="deleteReminder(reminder.reason)"><i class="fas fa-times"></i></button>
                 <img *ngIf="i%2==0" class="card-img my-4" src="../../../../assets/imgs/plant-icon.png" alt="">
                 <img *ngIf="i%2==1" class="card-img my-4" src="../../../../assets/imgs/plant-icon2.png" alt="">
                 <div class="card-body display-inline">
