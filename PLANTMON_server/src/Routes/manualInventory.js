@@ -42,19 +42,19 @@ router.get('/:username', async(req, res) => {
 router.patch('/', async(req, res) => {
     try {
         findPlant = await ManualInventory.findOne({ username: req.body.username, plantName: req.body.plantName });
-        findNewSchema = await ManualInventory.findOne({ username: req.body.username, plantName: req.body.plantaManual.plantName });
-
-        if (findPlant != null && ((req.body.plantName == req.body.schema.plantName) || (findNewSchema == null))) {
+        findNewPlant = await ManualInventory.findOne({ username: req.body.username, plantName: req.body.plantaManual.plantName });
+        
+        if (findPlant != null && ((req.body.plantName == req.body.plantaManual.plantName) || (findNewPlant == null))) {
             const updatedPlant = await ManualInventory.updateOne({ _id: findPlant._id }, req.body.plantaManual);
-            findSchema = await ManualInventory.findOne({ username: req.body.username, plantName: req.body.plantName });
+            findNewPlant = await ManualInventory.findOne({ username: req.body.username, plantName: req.body.plantName });
 
-            res.json(findSchema);
+            res.json(updatedPlant);
         } else {
             res.json({ message: "Error. Este username no está en la base de datos" });
         }
 
     } catch (error) {
-        res.json({ message: error });
+        res.json('ERROR');
     }
 
 });
