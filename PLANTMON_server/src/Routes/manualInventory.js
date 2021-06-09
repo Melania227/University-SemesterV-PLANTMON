@@ -26,13 +26,39 @@ router.get('/', async(req, res) => {
 //S: manual inventory del user
 router.get('/:username', async(req, res) => {
     try {
-        const manualInventory = await ManualInventory.findOne({ username: req.params.username });
+        const manualInventory = await ManualInventory.find({ username: req.params.username });
+        console.log(manualInventory);
         res.json(manualInventory);
     } catch (error) {
-        res.json('Error SOS!!');
+        res.json({ message: error });
     }
 
 });
+
+
+//PATCH (Update)
+//E: {name, schema}
+//S: El schema actualizado 
+router.patch('/', async(req, res) => {
+    try {
+        findPlant = await ManualInventory.findOne({ username: req.body.username, plantName: req.body.plantName });
+        findNewSchema = await ManualInventory.findOne({ username: req.body.username, plantName: req.body.plantaManual.plantName });
+
+        if (findPlant != null && ((req.body.plantName == req.body.schema.plantName) || (findNewSchema == null))) {
+            const updatedPlant = await ManualInventory.updateOne({ _id: findPlant._id }, req.body.plantaManual);
+            findSchema = await ManualInventory.findOne({ username: req.body.username, plantName: req.body.plantName });
+
+            res.json(findSchema);
+        } else {
+            res.json({ message: "Error. Este username no está en la base de datos" });
+        }
+
+    } catch (error) {
+        res.json({ message: error });
+    }
+
+});
+
 
 
 
