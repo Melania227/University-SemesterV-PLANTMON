@@ -1,0 +1,24 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">  
+    
+    <!-- ROBOTO FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<div class="homeBody mb-0">
+    <div class="container-fluid dateText">
+        <p class="pt-4">{{today | date:'fullDate'}}</p>
+    </div>
+    <div *ngFor="let reminder of reminders; index as i">
+        <div class="row mt-4">
+            <div class="card text-left">
+                <button class="btn mx-2" (click)="deleteReminder(reminder.reason)"><i class="fas fa-times"></i></button>
+                <img *ngIf="i%2==0" class="card-img my-4" src="../../../../assets/imgs/plant-icon.png" alt="">
+                <img *ngIf="i%2==1" class="card-img my-4" src="../../../../assets/imgs/plant-icon2.png" alt="">
+                <div class="card-body display-inline">
+                    <h4 class="card-title my-5">{{reminder.reason}}</h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+.dateText{
+    font-family:  'Roboto', sans-serif;
+    font-size: 30px;
+    /* text-align: center; */
+}
+
+.card{
+    margin: 0 auto;
+    max-width: 900px;
+    background-color: hsl(39, 50%, 57%,0.7);
+    flex-direction: row;
+    font-family:  'Roboto', sans-serif;
+    border-radius: 20px;
+}
+
+.card-img{
+    max-width: 100px;
+    max-height: 100px;
+}
+button{
+    float: right;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* .card-body{
+    display: flex;
+} */

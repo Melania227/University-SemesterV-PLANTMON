@@ -1,0 +1,64 @@
+body{
+    background-image: url('../../../assets/imgs/circle-background.png');
+}
+
+.square{
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    margin-top: 50px;
+}
+
+.card{
+    margin: 0 auto;
+    max-width: 900px;
+    background-color: hsl(39, 50%, 57%,0.7);
+    font-family:  'Roboto', sans-serif;
+    border-radius: 20px;
+}
+.card-img-top{
+    max-height: 200px;
+    max-width: 200px;
+}
+
+.btnGroup button{
+    font-size: 30px;
+    display: inline-block;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.card-body p{
+    font-size: 20px;
+    font-weight: light;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card-body h4{
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Roboto', sans-serif;
+}
+
+.btnAdd{
+    background: #82AB48;
+    border-radius: 20px;
+    font-size: 30px;
+}
+
+.imgOval{
+    background-color: #87A360;
+    border-style: solid;
+    height: 400px;
+    width: 300px;
+    padding: 20px;
+    border-radius: 50%;
+    float: left;
+    shape-outside: border-box;
+}
+
+.btnAddClass{
+    margin-top: 200px;
+}

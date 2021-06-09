@@ -1,0 +1,12 @@
+.responsive {
+    width: 100%;
+    height: auto;
+}
+
+.header-img{
+    overflow:auto
+}
+
+.homeBody{
+    background-image: url('../../../assets/imgs/circle-background.png');
+}
