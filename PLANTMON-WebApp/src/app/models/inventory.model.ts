@@ -15,3 +15,8 @@ export interface InventoryToEdit{
     plantName: string;
     plantaManual: Inventory;
 }
+
+export interface InventoryToGetPlant{
+    username: string;
+    plantName: string;
+}
