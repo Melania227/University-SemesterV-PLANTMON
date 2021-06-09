@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Inventory, InventoryToEdit } from "../models/inventory.model";
+import { Inventory, InventoryToEdit, InventoryToGetPlant } from "../models/inventory.model";
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -16,6 +16,10 @@ export class InventoryService {
   /* Get */
   getInventoryByUser(user: string): Observable<Inventory[]>{
     return this.http.get<Inventory[]>(this.URL+'manualInventory/'+user);
+  }
+
+  getPlantByName(user: string, name: string): Observable<Inventory>{
+    return this.http.get<Inventory>(this.URL+'manualInventory/'+user+"/"+name);
   }
 
   /* Create  */
