@@ -30,6 +30,7 @@ app.use('/Reminders', remindersRoute);
 app.use('/SensorInfo', sensorInfoRoute);
 app.use('/WithSensorsInventory', withSensorsInventoryRoute);
 
+
 mongoose.connect(
     process.env.DB_CONNECTION_PLANTMON, {
         useUnifiedTopology: true,
@@ -41,4 +42,7 @@ mongoose.connect(
 );
 
 // server listing in  port 4000
-app.listen(4000);
+app.listen('80','192.168.100.19' || 'localhost',function() {
+    console.log('Application worker ' + process.pid + ' started...');
+  }
+  );
