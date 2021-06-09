@@ -22,10 +22,10 @@ body{
 }
 .card-img-top{
     max-height: 190px;
-    max-width: 260px;
-    border-radius: 20px;
+    max-width: 190px;
     margin-top: 30px;
     margin-bottom: 20px;
+    margin-left: 42px;
     /* border-style: solid; */
 }
 
