@@ -37,7 +37,8 @@ export class CreateReminderComponent implements OnInit {
     plantForm.form.value.domingoOpt===true?this.diasElegidos.push("Domingo"):this.diasElegidos;
     
      /* Lo enviamos al servidor de BD */
-    this.newReminder = {username: "UserPrueba", reason: this.motivo, day: this.diasElegidos, repeat: this.repetir};
+    let userActual =  localStorage.getItem('username');
+    this.newReminder = {username: userActual, reason: this.motivo, day: this.diasElegidos, repeat: this.repetir};
 
     this._reminderService.newReminder(this.newReminder).subscribe(
         res => {

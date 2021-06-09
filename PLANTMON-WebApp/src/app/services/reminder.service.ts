@@ -7,38 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ReminderService {
-  remindersTemp: Reminder[] = [
-    {
-      username: "Patito",
-      reason: "Regar planta dos mil novecientas veces para que no se muera",
-      day: ["Lunes, Martes"],
-      repeat: true
-    },
-    {
-      username: "Patito",
-      reason: "Abonar planta para ver si crece mas que un sapo parado de manos",
-      day: ["Lunes, Martes"],
-      repeat: true
-    },
-    {
-      username: "Patito",
-      reason: "Podar planta para que quede como joaquin cuando se corta el pelo, con una mera jupa",
-      day: ["Lunes, Martes"],
-      repeat: true
-    },
-    {
-      username: "Patito",
-      reason: "Correr la planta del sol para que no se queme como mi pobre cerebro en este preciso instante, ayuda por favor",
-      day: ["Lunes, Martes"],
-      repeat: true
-    },
-    {
-      username: "Patito",
-      reason: "La planta quiere mimir como la que está escribiendo esto, que sueño aiuda.",
-      day: ["Lunes, Martes"],
-      repeat: true
-    }
-  ];
+  remindersTemp: Reminder[];
 
   private URL: string = 'http://localhost:4000/';
 
