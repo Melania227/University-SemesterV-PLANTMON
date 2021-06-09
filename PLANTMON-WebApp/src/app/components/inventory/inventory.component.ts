@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { InventoryService } from 'src/app/services/inventory.service';
+import { Inventory, InventoryToEdit } from "../../models/inventory.model";
 
 @Component({
   selector: 'app-inventory',
@@ -6,71 +9,34 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./inventory.component.css']
 })
 export class InventoryComponent implements OnInit {
-  plantInventory=[
-    {
-      "username": "melania227",
-      "plantName": "Echeveria",
-      "type": "Crassulaceae",
-      "updates": [
-        {
-            "date": Date.now(),
-            "description": "Compra de la planta Echeveria, es pequeña."
-        },
-        {
-            "date": Date.now(),
-            "description": "Movimiento de planta, se comenzó a secar."
-        },
-        {
-            "date": Date.now(),
-            "description": "Compra de la planta Echeveria, es pequeña."
-        }
-      ],
-      "image": "https://drive.google.com/file/d/1hXbScueteO_Vky0fdFF3iopHdZAW9TP8/view?usp=sharing"
-    },
-    {
-      "username": "melania227",
-      "plantName": "Suculenta",
-      "type": "Crassulaceae",
-      "updates": [
-        {
-            "date": Date.now(),
-            "description": "Compra de la planta Echeveria, es pequeña."
-        },
-        {
-            "date": Date.now(),
-            "description": "Movimiento de planta, se comenzó a secar."
-        },
-        {
-            "date": Date.now(),
-            "description": "Movimiento de planta, se comenzó a secar."
-        }
-      ],
-      "image": "https://drive.google.com/file/d/1hXbScueteO_Vky0fdFF3iopHdZAW9TP8/view?usp=sharing"
-    },
-    {
-      "username": "melania227",
-      "plantName": "Cactus",
-      "type": "Crassulaceae",
-      "updates": [
-        {
-            "date": Date.now(),
-            "description": "Compra de la planta Echeveria, es pequeña."
-        },
-        {
-            "date": Date.now(),
-            "description": "Movimiento de planta, se comenzó a secar."
-        },
-        {
-            "date": Date.now(),
-            "description": "Planta presenta mejoras en la nueva localización."
-        }
-      ],
-      "image": "https://drive.google.com/file/d/1hXbScueteO_Vky0fdFF3iopHdZAW9TP8/view?usp=sharing"
-    }
-  ]
-  constructor() { }
+  plantInventory: Inventory[];
+
+  constructor(
+    private _inventoryService: InventoryService, 
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
+    let userActual =  localStorage.getItem('username');
+    this._inventoryService.getInventoryByUser(userActual).subscribe(res => {
+      console.log(res);
+      this.plantInventory = res;
+    });
+  }
+
+  deletePlant(plantName: string){
+    /* Lo enviamos al servidor de BD */
+    let userActual =  localStorage.getItem('username');
+
+    this._inventoryService.deletePlant(userActual, plantName).subscribe(
+        res => {
+          console.log(res);
+        },
+        err => console.log(err)
+    )
+
+    /* this.popNotificationService.success("User successfully created");*/
+    window.location.reload();
   }
 
 }

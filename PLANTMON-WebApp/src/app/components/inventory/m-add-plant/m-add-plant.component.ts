@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { InventoryService } from 'src/app/services/inventory.service';
+import { Inventory, InventoryToEdit } from "../../../models/inventory.model";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-m-add-plant',
@@ -9,8 +12,13 @@ export class MAddPlantComponent implements OnInit {
   nombrePlanta: string ="";
   familiaPlanta: string ="";
   actualizacionPlanta: string ="";
+  newPlant: Inventory;
+  fecha: number = Date.now();
 
-  constructor() { }
+  constructor(
+    private _inventoryService: InventoryService, 
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -22,6 +30,20 @@ export class MAddPlantComponent implements OnInit {
     console.log(this.nombrePlanta);
     console.log(this.familiaPlanta);
     console.log(this.actualizacionPlanta);
+
+     /* Lo enviamos al servidor de BD */
+     let userActual =  localStorage.getItem('username');
+     this.newPlant = {username: userActual, plantName: this.nombrePlanta, type: this.familiaPlanta, updates: [{date: this.fecha, description: this.actualizacionPlanta}]};
+ 
+     this._inventoryService.newReminder(this.newPlant).subscribe(
+         res => {
+           console.log(res);
+         },
+         err => console.log(err)
+     )
+ 
+     /* this.popNotificationService.success("User successfully created");*/
+     this.router.navigate(['/', 'inventory']); 
   }
 
 }
