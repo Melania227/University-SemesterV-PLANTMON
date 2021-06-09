@@ -17,7 +17,9 @@ export class NotificationComponent implements OnInit {
 
   ngOnInit(): void {
     //this.reminders = this._reminderService.getRemindersByUser("Patito");
-    this._reminderService.getRemindersByUser("UserPrueba").subscribe(res => {
+    let userActual =  localStorage.getItem('username');
+    console.log(userActual);
+    this._reminderService.getRemindersByUser(userActual).subscribe(res => {
       console.log(res);
       this.reminders = res;
     });

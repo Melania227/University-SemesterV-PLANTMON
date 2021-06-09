@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from 'src/app/services/user.service';
+import { User } from "../../models/user.model";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sign-up',
@@ -10,8 +13,12 @@ export class SignUpComponent implements OnInit {
   password: string = "";
   fechaNacimiento: Date;
   tipo: string = "";
+  newUser:User;
 
-  constructor() { }
+  constructor(
+    private _userService: UserService, 
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -25,6 +32,19 @@ export class SignUpComponent implements OnInit {
     console.log(this.password);
     console.log(this.fechaNacimiento);
     console.log(this.tipo);
+
+     /* Lo enviamos al servidor de BD */
+     this.newUser = {email: this.correo, password: this.password, type: this.tipo, birthDate: this.fechaNacimiento};
+
+     this._userService.signUp(this.newUser).subscribe(
+         res => {
+           console.log(res);
+         },
+         err => console.log(err)
+     )
+ 
+     /* this.popNotificationService.success("User successfully created");*/
+     this.router.navigate(['/', 'home']); 
   }
 
 }
