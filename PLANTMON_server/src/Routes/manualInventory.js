@@ -19,7 +19,19 @@ router.get('/', async(req, res) => {
 
 });
 
+//GET planta especifica de un manual inventory de un user en especifico
+//E: username, plant name
+//S: planta en manual inventory del user
+router.get('/plantByName', async(req, res) => {
+    try {
+        const manualInventory = await ManualInventory.findOne({ username: req.body.username, plantName: req.body.plantName });
+        console.log(manualInventory);
+        res.json(manualInventory);
+    } catch (error) {
+        res.json({ message: error });
+    }
 
+});
 
 //GET de un manual inventory de un user en especifico
 //E: username 
