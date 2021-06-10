@@ -7,14 +7,13 @@
 </head>
 
 <body>
-    <app-header></app-header>
     <div class="square container">
         <div class="card text-left">
             <div class="card-body">
                 <div class="row">
                     <div class="col-3 options pl-4 m-0">
                         <div *ngFor="let infoIn of info" class="btnGroup text-center">
-                            <button class="btn" [routerLink]="['/info', infoIn.name]">{{infoIn.name}}</button>
+                            <button class="btn" [routerLink]="['/info/details', infoIn.name]">{{infoIn.name}}</button>
                         </div>
                     </div>
                     <div class="col-9 p-0 m-0">
