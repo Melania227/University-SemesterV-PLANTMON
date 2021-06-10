@@ -18,13 +18,11 @@ import { PlantInfoDetailsComponent } from './components/information/plant-info-d
 import { InventoryComponent } from './components/inventory/inventory.component';
 import { MPlantDetailComponent } from './components/inventory/m-plant-detail/m-plant-detail.component';
 import { MAddPlantComponent } from './components/inventory/m-add-plant/m-add-plant.component';
-import { MPlantPreviewComponent } from './components/inventory/m-plant-preview/m-plant-preview.component';
 import { MPlantEditComponent } from './components/inventory/m-plant-edit/m-plant-edit.component';
 import { MonitoringComponent } from './components/monitoring/monitoring.component';
 import { SAddPlantComponent } from './components/monitoring/s-add-plant/s-add-plant.component';
 import { SPlantDetailComponent } from './components/monitoring/s-plant-detail/s-plant-detail.component';
 import { SPlantEditComponent } from './components/monitoring/s-plant-edit/s-plant-edit.component';
-import { SPlantPreviewComponent } from './components/monitoring/s-plant-preview/s-plant-preview.component';
 import { InitPageComponent } from './components/init-page/init-page.component';
 import { NoReminderAvailableComponent } from './components/reminders/no-reminder-available/no-reminder-available.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -32,6 +30,9 @@ import { CreateReminderComponent } from './components/reminders/create-reminder/
 
 import { ReminderService } from "./services/reminder.service";
 import { HttpClientModule } from '@angular/common/http';
+import { MPlantListComponent } from './components/inventory/m-plant-list/m-plant-list.component';
+import { SPlantListComponent } from './components/monitoring/s-plant-list/s-plant-list.component';
+import { RemindersListComponent } from './components/reminders/reminders-list/reminders-list.component';
 
 @NgModule({
   declarations: [
@@ -49,16 +50,17 @@ import { HttpClientModule } from '@angular/common/http';
     InventoryComponent,
     MPlantDetailComponent,
     MAddPlantComponent,
-    MPlantPreviewComponent,
     MPlantEditComponent,
     MonitoringComponent,
     SAddPlantComponent,
     SPlantDetailComponent,
     SPlantEditComponent,
-    SPlantPreviewComponent,
     InitPageComponent,
     NoReminderAvailableComponent,
-    CreateReminderComponent
+    CreateReminderComponent,
+    MPlantListComponent,
+    SPlantListComponent,
+    RemindersListComponent
   ],
   imports: [
     BrowserModule,

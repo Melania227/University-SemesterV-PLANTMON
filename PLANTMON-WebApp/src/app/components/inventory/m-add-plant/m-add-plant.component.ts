@@ -43,7 +43,7 @@ export class MAddPlantComponent implements OnInit {
      )
  
      /* this.popNotificationService.success("User successfully created");*/
-     this.router.navigate(['/', 'inventory']); 
+     this.router.navigate(['/inventory/', 'list']); 
   }
 
 }

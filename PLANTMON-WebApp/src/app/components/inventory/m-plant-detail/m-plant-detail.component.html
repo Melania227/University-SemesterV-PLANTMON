@@ -7,7 +7,6 @@
 </head>
 
 <body>
-    <app-header></app-header>
     <div class="container square">
         <div class="card text-left">
             <div class="plantGroup">
@@ -22,7 +21,7 @@
                     <h4 class="card-title">{{update.date | date:'fullDate'}}</h4>
                     <p class="card-text">{{update.description}}</p>
                 </div>
-                <button class="btn" [routerLink]="['/inventory']">Volver</button>
+                <button class="btn" [routerLink]="['/inventory/list']">Volver</button>
             </div>
         </div>
     </div>
