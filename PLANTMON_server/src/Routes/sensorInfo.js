@@ -10,9 +10,12 @@ const SensorInfo = require('../Models/SensorInfo');
 //S: info de ese sensor
 router.get('/:sensorId', async(req, res) => {
     try {
+        console.log(req.params);
         const sensorInfo = await SensorInfo.find({ sensorIdentifier: req.params.sensorId });
+        console.log(sensorInfo);
         res.json(sensorInfo);
     } catch (error) {
+        console.log(error);
         res.json('Error SOS!!');
     }
 
@@ -24,18 +27,18 @@ router.get('/:sensorId', async(req, res) => {
 //S: info del sensor recien creada
 router.post('/', async(req, res) => {
     try {
-        
-        const findSensorInfo = await SensorInfo.findOne({ sensorIdentifier: req.body.sensorIdentifier, date: req.body.date, hour: req.body.hour, type: req.body.type });
+        var d = new Date();
+        const findSensorInfo = await SensorInfo.findOne({ sensorIdentifier: req.body.sensorIdentifier, date: d, hour: d.toLocaleTimeString(), type: req.body.type });
         
         if (findSensorInfo == null) {
             const sensorInfo = new SensorInfo({
                 sensorIdentifier: req.body.sensorIdentifier, 
-                date: req.body.date, 
-                hour: req.body.hour,
+                date: d, 
+                hour: d.toLocaleTimeString(),
                 type: req.body.type,
                 data: req.body.data
             });
-
+            console.log(req.body)
             await sensorInfo.save(function(err) {
                 if (err) {
                     res.json('ERROR');
