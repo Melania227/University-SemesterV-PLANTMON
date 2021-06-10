@@ -48,7 +48,7 @@ export class CreateReminderComponent implements OnInit {
     )
 
     /* this.popNotificationService.success("User successfully created");*/
-    this.router.navigate(['/', 'reminders']); 
+    this.router.navigate(['/reminders/', 'list']); 
   }
 
 

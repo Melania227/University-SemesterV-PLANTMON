@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class InventoryService {
 
-  private URL: string = 'http://localhost:4000/';
+  private URL: string = 'http://localhost:80/';
 
   constructor(private http: HttpClient){
   }

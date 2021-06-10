@@ -7,7 +7,6 @@
 </head>
 
 <body>
-    <app-header></app-header>
     <div class="container p-5 square">
         <div class="container my-5">
             <div class="card text-left">
@@ -39,7 +38,7 @@
                             </div>
                         </div>
                         <button type="submit" class="btn" (click)="sendData(plantForm)" [disabled]="!nombrePlanta.valid || !familiaPlanta.valid || !descripcion.valid">Guardar</button>
-                        <button class="btn" [routerLink]="['/inventory']">Volver</button>
+                        <button class="btn" [routerLink]="['/inventory/list']">Volver</button>
                     </form>
                 </div>
             </div>
