@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+
 import { AppRoutingModule } from './app-routing.module';
 import { APP_ROUTING } from './app.routes';
 
@@ -33,6 +35,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MPlantListComponent } from './components/inventory/m-plant-list/m-plant-list.component';
 import { SPlantListComponent } from './components/monitoring/s-plant-list/s-plant-list.component';
 import { RemindersListComponent } from './components/reminders/reminders-list/reminders-list.component';
+import { CarouselComponent } from './components/commons/carousel/carousel.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +63,8 @@ import { RemindersListComponent } from './components/reminders/reminders-list/re
     CreateReminderComponent,
     MPlantListComponent,
     SPlantListComponent,
-    RemindersListComponent
+    RemindersListComponent,
+    CarouselComponent
   ],
   imports: [
     BrowserModule,
@@ -68,7 +72,8 @@ import { RemindersListComponent } from './components/reminders/reminders-list/re
     APP_ROUTING,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule  
   ],
   providers: [
     ReminderService

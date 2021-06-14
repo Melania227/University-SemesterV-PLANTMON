@@ -29,8 +29,7 @@ const APP_ROUTES : Routes = [
             {path: 'list', component: MPlantListComponent},
             {path: 'add', component: MAddPlantComponent},
             {path: 'edit/:id', component: MPlantEditComponent},
-            {path: 'detail/:id', component: MPlantDetailComponent}
-        ]
+            {path: 'detail/:id', component: MPlantDetailComponent}        ]
     },
     {path: 'monitoring',
         component: MonitoringComponent,

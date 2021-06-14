@@ -8,13 +8,14 @@ import { Observable } from 'rxjs';
 })
 export class InventoryService {
 
-  private URL: string = 'http://localhost:80/';
+  private URL: string = 'http://192.168.100.19:80/';
 
   constructor(private http: HttpClient){
   }
 
   /* Get */
   getInventoryByUser(user: string): Observable<Inventory[]>{
+    console.log(this.URL+'manualInventory/'+user);
     return this.http.get<Inventory[]>(this.URL+'manualInventory/'+user);
   }
 
@@ -28,7 +29,8 @@ export class InventoryService {
   }
 
   /* Patch */
-  editReminder(inventory:InventoryToEdit){
+  editInventory(inventory:InventoryToEdit){
+    
     return this.http.patch<any>(this.URL+'manualInventory/', inventory);
   }
 

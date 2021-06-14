@@ -8,11 +8,17 @@
 .nav-link{
     color: black;
     font-weight: 500;
-    font-size: 24px;
+    font-size: 22px;
     font-family: 'Roboto', sans-serif;
 }
 
-.navbar {padding: 0 0;}
+.nav-link:hover, .nav-item:hover{
+    background-color: #8ebe4b;
+}
+
+.navbar {
+    padding: 0 0;
+}
 
 button:focus {
     outline: none;
@@ -24,8 +30,13 @@ button:focus {
 }
 
 .iconLogout{
-    font-size: 70px;
+    font-size: 55px;
     color: black;
+}
+
+.iconLogout:hover{
+    font-size: 55px;
+    color: white;
 }
 
 .active{
@@ -35,4 +46,8 @@ button:focus {
     border-bottom-width: 8px;
     border-bottom-color: white;
     
+}
+
+.active:hover{
+    background-color: #26380e;
 }

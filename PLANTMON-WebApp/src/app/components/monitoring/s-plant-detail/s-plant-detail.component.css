@@ -1,0 +1,71 @@
+body{
+    background-image: url('../../../../assets/imgs/circle-background.png');
+    padding-bottom: 50px;
+}
+
+.square{
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    margin-top: 40px;
+    padding-top: 120px;
+    padding-bottom: 120px;
+}
+
+.card{
+    margin: 0 auto;
+    max-width: 1000px;
+    background-color: hsl(39, 50%, 57%,0.7);
+    flex-direction: row;
+    font-family:  'Roboto', sans-serif;
+    border-radius: 20px;
+    padding: 20px;
+}
+.card-img-top{
+    max-height: 190px;
+    max-width: 190px;
+    /* border-style: solid; */
+}
+
+.plantGroup{
+    font-size: 30px;
+    display: block;
+    text-align: center;
+    padding: 10px;
+    width: 100%;
+}
+
+button{
+    background-color: rgba(58, 82, 25, 0.555);
+    color: rgb(255, 255, 255);
+    border-radius: 13px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 10px;
+    font-size: 20px;
+}
+
+button:hover{
+    color: white;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.card-body{
+    margin-left: 30px;
+    margin-right: 10px;
+}
+
+.card-body p{
+    font-size: 18px;
+    font-weight: light;
+    font-family: 'Roboto', sans-serif;
+}
+
+.card-body h4{
+    font-size: 25px;
+    font-weight: 500px;
+    font-family: 'Roboto', sans-serif;
+}
