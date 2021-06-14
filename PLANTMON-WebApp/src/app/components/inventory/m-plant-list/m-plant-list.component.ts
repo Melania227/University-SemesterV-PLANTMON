@@ -21,6 +21,7 @@ export class MPlantListComponent implements OnInit {
     this._inventoryService.getInventoryByUser(userActual).subscribe(res => {
       console.log(res);
       this.plantInventory = res;
+      console.log(this.plantInventory );
     });
   }
 

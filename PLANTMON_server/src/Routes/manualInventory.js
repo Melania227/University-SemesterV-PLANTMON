@@ -11,12 +11,12 @@ const ManualInventory = require('../Models/ManualInventory');
 router.get('/', async(req, res) => {
     try {
         const manualInventory = await ManualInventory.find();
-
         res.json(manualInventory);
     } catch (error) {
-        res.json('ERROR');
+        console.error();
+        console.log(error);
     }
-
+    
 });
 
 //GET planta especifica de un manual inventory de un user en especifico
@@ -25,7 +25,6 @@ router.get('/', async(req, res) => {
 router.get('/:username/:plantName', async(req, res) => {
     try {
         const manualInventory = await ManualInventory.findOne({ username: req.params.username, plantName: req.params.plantName });
-        console.log(manualInventory);
         res.json(manualInventory);
     } catch (error) {
         res.json({ message: error });
@@ -39,7 +38,6 @@ router.get('/:username/:plantName', async(req, res) => {
 router.get('/:username', async(req, res) => {
     try {
         const manualInventory = await ManualInventory.find({ username: req.params.username });
-        console.log(manualInventory);
         res.json(manualInventory);
     } catch (error) {
         res.json({ message: error });
@@ -53,6 +51,7 @@ router.get('/:username', async(req, res) => {
 //S: El schema actualizado 
 router.patch('/', async(req, res) => {
     try {
+        console.log("entra aquí");
         findPlant = await ManualInventory.findOne({ username: req.body.username, plantName: req.body.plantName });
         findNewPlant = await ManualInventory.findOne({ username: req.body.username, plantName: req.body.plantaManual.plantName });
         
@@ -66,10 +65,12 @@ router.patch('/', async(req, res) => {
         }
 
     } catch (error) {
-        res.json('ERROR');
+        console.error();
     }
 
 });
+
+
 
 
 

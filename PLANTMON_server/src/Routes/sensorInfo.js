@@ -22,6 +22,17 @@ router.get('/:sensorId', async(req, res) => {
 });
 
 
+router.get('/', async(req, res) => {
+    try {
+        const sensorInfo = await SensorInfo.find();
+    } catch (error) {
+        console.log(error);
+        res.json('Error SOS!!');
+    }
+
+});
+
+
 //POST (Insert)
 //E: info del sensor en una fecha y hora especifica
 //S: info del sensor recien creada

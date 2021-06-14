@@ -1,5 +1,6 @@
 body{
     background-image: url('../../../../assets/imgs/circle-background.png');
+    color: black;
 }
 
 .square{
@@ -16,8 +17,8 @@ body{
     border-radius: 20px;
 }
 .card-img-top{
-    max-height: 200px;
-    max-width: 200px;
+    max-height: 50%;
+    max-width: 60%;
 }
 
 .btnGroup button{
@@ -48,17 +49,11 @@ button:focus {
     font-size: 30px;
 }
 
-.imgOval{
-    background-color: #87A360;
-    border-style: solid;
-    height: 400px;
-    width: 300px;
-    padding: 20px;
-    border-radius: 50%;
-    float: left;
-    shape-outside: border-box;
-}
-
 .btnAddClass{
     margin-top: 200px;
+}
+
+.opt{
+    color: black !important;
+    font-size: 40px !important;
 }
