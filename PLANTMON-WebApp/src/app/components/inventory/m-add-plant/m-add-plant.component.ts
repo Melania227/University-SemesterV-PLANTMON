@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InventoryService } from 'src/app/services/inventory.service';
-import { Inventory, InventoryToEdit } from "../../../models/inventory.model";
+import { Inventory } from "../../../models/inventory.model";
 import { Router } from '@angular/router';
 
 @Component({

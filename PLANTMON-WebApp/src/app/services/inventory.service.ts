@@ -15,6 +15,7 @@ export class InventoryService {
 
   /* Get */
   getInventoryByUser(user: string): Observable<Inventory[]>{
+    console.log(this.URL+'manualInventory/'+user);
     return this.http.get<Inventory[]>(this.URL+'manualInventory/'+user);
   }
 
@@ -28,7 +29,7 @@ export class InventoryService {
   }
 
   /* Patch */
-  editReminder(inventory:InventoryToEdit){
+  editInventory(inventory:InventoryToEdit){
     return this.http.patch<any>(this.URL+'manualInventory/', inventory);
   }
 

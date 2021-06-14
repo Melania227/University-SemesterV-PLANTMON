@@ -34,6 +34,17 @@ router.get('/:username', async(req, res) => {
 });
 
 
+router.get('/:username/:plantName', async(req, res) => {
+    try {
+        const sensorsInventory = await SensorsInventory.findOne({ username: req.params.username, plantName: req.params.plantName });
+        res.json(sensorsInventory);
+    } catch (error) {
+        res.json({ message: error });
+    }
+
+});
+
+
 //DELETE de un with sensor inventory especifico de un user
 //E: username
 //S: sensor inventory para una planta y usuario especifico 

@@ -9,17 +9,17 @@
 <body>
     <div class="container p-5 square">
         <div class="row">
-            <div *ngFor="let plant of plants" class="col-lg-4 mb-5">
+            <div *ngFor="let plant of plantMonitoring" class="col-lg-4 mb-5">
                 <div class="card text-left">
-                    <div class="imgOval m-5 mb-1">
-                        <img class="card-img-top mx-4 mt-5" src="../../../../assets/imgs/plant-icon3.png" alt="">
+                    <div class="text-center mt-1">
+                        <img class="card-img-top" src="../../../../assets/imgs/imgOval.png" alt="">
                     </div>
-                    <div class="card-body text-center">
+                    <div class="card-body text-center pt-0">
                         <h4 class="card-title">{{plant.plantName}}</h4>
                         <div class="btnGroup">
-                            <button class="btn mx-2 my-3"  [routerLink]="['/monitoring/detail', plant.plantName]"><i class="fas fa-exclamation-circle"></i></button>
-                            <button class="btn mx-2 my-3" [routerLink]="['/monitoring/edit', plant.plantName]"><i class="fas fa-pencil-alt"></i></button>
-                            <button class="btn mx-2 my-3"><i class="fas fa-times-circle"></i></button>
+                            <button class="btn mx-2 my-2 opt"  [routerLink]="['/monitoring/detail', plant.plantName]"><i class="fas fa-exclamation-circle"></i></button>
+                            <button class="btn mx-2 my-2 opt" [routerLink]="['/monitoring/edit', plant.plantName]"><i class="fas fa-pencil-alt"></i></button>
+                            <button class="btn mx-2 my-2 opt"><i class="fas fa-times-circle"></i></button>
                         </div>
                     </div>
                 </div>

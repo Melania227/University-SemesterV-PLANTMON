@@ -10,8 +10,9 @@ const ManualInventory = require('../Models/ManualInventory');
 //S: Todos los inventarios manuales
 router.get('/', async(req, res) => {
     try {
+        res.json('entra aquí');
         const manualInventory = await ManualInventory.find();
-
+        res.json('pasa aquí');
         res.json(manualInventory);
     } catch (error) {
         res.json('ERROR');
@@ -25,7 +26,6 @@ router.get('/', async(req, res) => {
 router.get('/:username/:plantName', async(req, res) => {
     try {
         const manualInventory = await ManualInventory.findOne({ username: req.params.username, plantName: req.params.plantName });
-        console.log(manualInventory);
         res.json(manualInventory);
     } catch (error) {
         res.json({ message: error });
@@ -39,7 +39,6 @@ router.get('/:username/:plantName', async(req, res) => {
 router.get('/:username', async(req, res) => {
     try {
         const manualInventory = await ManualInventory.find({ username: req.params.username });
-        console.log(manualInventory);
         res.json(manualInventory);
     } catch (error) {
         res.json({ message: error });
@@ -70,6 +69,8 @@ router.patch('/', async(req, res) => {
     }
 
 });
+
+
 
 
 
