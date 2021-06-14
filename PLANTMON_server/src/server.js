@@ -41,8 +41,11 @@ mongoose.connect(
     }
 );
 
+mongoose.Promise = global.Promise;
+
+
 // server listing in  port 4000
-app.listen('80','192.168.100.19' | 'localhost',function() {
+app.listen('80','192.168.100.19',function() {
     console.log('Application worker ' + process.pid + ' started...');
   }
 );

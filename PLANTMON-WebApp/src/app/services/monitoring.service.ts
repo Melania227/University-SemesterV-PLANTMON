@@ -8,7 +8,7 @@ import { Monitoring, MonitoringToEdit, SensorData } from '../models/monitoring.m
 })
 export class MonitoringService {
 
-  private URL: string = 'http://localhost:80/';
+  private URL: string = 'http://192.168.100.19:80/';
 
   constructor(private http: HttpClient){
   }

@@ -2,15 +2,17 @@ export interface Monitoring{
     username: string;
     plantName: string;
     type: string;
-    updates:updates [];
+    updates: [
+    	{
+	        date: number,
+	        description: string;
+    	}
+    ];
     associatedSensors: string[]; 
     image: string;
 }
 
-export interface updates{
-    date: number,
-	description: string;
-}
+
 
 export interface MonitoringToEdit{
     username: string;

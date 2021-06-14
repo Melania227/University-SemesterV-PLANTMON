@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { InventoryService } from 'src/app/services/inventory.service';
 import { Inventory, InventoryToEdit } from '../../../models/inventory.model';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ThrowStmt } from '@angular/compiler';
+
 
 @Component({
   selector: 'app-m-plant-edit',
@@ -15,15 +15,16 @@ export class MPlantEditComponent implements OnInit {
   id: string;
   private sub: any;
 
-  updates: [{date: number,
-    description: string;}];
-
   /* PARA EL MODAL */
   closeModal: string;
   actual_d: any;
   actual_des: string;
 
-  original_plant: Inventory;
+  original_plant: Inventory;  
+  new_plant: InventoryToEdit ;
+  new_update: string = "";
+  updates: [{date: number,
+    description: string;}];
 
   constructor(
     private route: ActivatedRoute,
@@ -40,7 +41,7 @@ export class MPlantEditComponent implements OnInit {
     let userActual = localStorage.getItem('username');
     this._inventoryService
       .getPlantByName(userActual, this.id)
-      .subscribe((res) => {
+      .subscribe(res => {
         this.original_plant = res;
         this.updates = this.original_plant.updates;
       });
@@ -54,8 +55,7 @@ export class MPlantEditComponent implements OnInit {
       .result.then(
         (res) => {
           this.closeModal = `Closed with: ${res}`;
-          this.updates.find(x => x.date == date).description = this.actual_des
-          console.log(this.updates);
+          this.updates.find(x => x.date == date).description = this.actual_des;
         },
         (res) => {
           this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
@@ -74,9 +74,19 @@ export class MPlantEditComponent implements OnInit {
   }
 
   guardar(): void { 
-    let new_plant: InventoryToEdit;
-    new_plant.username = this.original_plant.username;
-   
-    //this._inventoryService.editInventory(this.original_plant);
+    let name = this.original_plant.plantName;
+    this.original_plant.plantName = this.id;
+    if (this.new_update!="") this.updates.push({date:  Date.now(),description: this.new_update});
+    this.original_plant.updates = this.updates;
+    this.new_plant ={ username: this.original_plant.username,plantName: name, plantaManual:this.original_plant }
+    console.log(this.new_plant);
+    try {this._inventoryService.editInventory(this.new_plant)} catch(e){console.log(e)};
+    console.log("wou");
+  }
+
+  deletePlant( date: number ,  descrip: string ):void{
+    this.updates = this.updates.filter(x => x.date != date && x.description != descrip ) as [{date: number,
+      description: string;}];
+    
   }
 }
