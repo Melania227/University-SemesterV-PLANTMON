@@ -18,14 +18,14 @@ const PlantInfoSchema = mongoose.Schema({
         required: true
     },
     temperature: {
-        type: String,
+        type: [String],
         required: false
     },
     moisture: {
         type: String,
         required: false
     },
-    pressure: {
+    irrigation: {
         type: String,
         required: false
     },
