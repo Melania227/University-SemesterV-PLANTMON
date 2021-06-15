@@ -9,7 +9,6 @@ export interface Monitoring{
     	}
     ];
     associatedSensors: string[]; 
-    image: string;
 }
 
 

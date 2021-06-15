@@ -35,7 +35,7 @@ body{
 }
 
 button{
-    background-color: rgba(58, 82, 25, 0.555);
+    background-color: rgb(99, 148, 30);
     color: rgb(255, 255, 255);
     border-radius: 13px;
     padding-left: 20px;
@@ -68,4 +68,14 @@ button:focus {
     font-size: 25px;
     font-weight: 500px;
     font-family: 'Roboto', sans-serif;
+}
+
+.fas{
+    font-size: 15px;
+    width: 8px !important;
+}
+
+.updates{
+    max-height: 250px;
+    overflow-y: auto;
 }

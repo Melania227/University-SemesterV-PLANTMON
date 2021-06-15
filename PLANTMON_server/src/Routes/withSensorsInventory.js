@@ -25,7 +25,7 @@ router.get('/', async(req, res) => {
 //S: User sin password
 router.get('/:username', async(req, res) => {
     try {
-        const sensorsInventory = await SensorsInventory.findOne({ username: req.params.username });
+        const sensorsInventory = await SensorsInventory.find({ username: req.params.username });
         res.json(sensorsInventory);
     } catch (error) {
         res.json('Error SOS!!');
@@ -43,6 +43,9 @@ router.get('/:username/:plantName', async(req, res) => {
     }
 
 });
+
+
+
 
 //PATCH (Update)
 //E: {name, schema}
