@@ -38,6 +38,7 @@ router.get('/:username/:plantName', async(req, res) => {
 router.get('/:username', async(req, res) => {
     try {
         const manualInventory = await ManualInventory.find({ username: req.params.username });
+        console.log("Entra");
         res.json(manualInventory);
     } catch (error) {
         res.json({ message: error });
@@ -51,7 +52,6 @@ router.get('/:username', async(req, res) => {
 //S: El schema actualizado 
 router.patch('/', async(req, res) => {
     try {
-        console.log("entra aquí");
         findPlant = await ManualInventory.findOne({ username: req.body.username, plantName: req.body.plantName });
         findNewPlant = await ManualInventory.findOne({ username: req.body.username, plantName: req.body.plantaManual.plantName });
         

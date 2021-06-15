@@ -78,9 +78,9 @@ router.post('/', async(req, res) => {
                 tips: req.body.tips,
                 temperature: req.body.temperature,
                 moisture: req.body.moisture,
-                pressure: req.body.pressure,
+                irrigation: req.body.irrigation,
                 solarIntensity: req.body.solarIntensity,
-                image: req.body.image //link de una plataforma donde se encuentre subida la img
+                image: req.body.image
             });
 
             await plant.save(function(err) {
