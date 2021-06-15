@@ -44,6 +44,29 @@ router.get('/:username/:plantName', async(req, res) => {
 
 });
 
+//PATCH (Update)
+//E: {name, schema}
+//S: El schema actualizado 
+router.patch('/', async(req, res) => {
+    try {
+        findPlant = await SensorsInventory.findOne({ username: req.body.username, plantName: req.body.plantName });
+        findNewPlant = await SensorsInventory.findOne({ username: req.body.username, plantName: req.body.plantaSensor.plantName });
+        
+        if (findPlant != null && ((req.body.plantName == req.body.plantaSensor.plantName) || (findNewPlant == null))) {
+            const updatedPlant = await SensorsInventory.updateOne({ _id: findPlant._id }, req.body.plantaSensor);
+            findNewPlant = await SensorsInventory.findOne({ username: req.body.username, plantName: req.body.plantName });
+
+            res.json(updatedPlant);
+        } else {
+            res.json({ message: "Error. Este username no está en la base de datos" });
+        }
+
+    } catch (error) {
+        console.error();
+    }
+
+});
+
 
 //DELETE de un with sensor inventory especifico de un user
 //E: username

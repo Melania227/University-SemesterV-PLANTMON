@@ -78,10 +78,15 @@ export class MPlantEditComponent implements OnInit {
     this.original_plant.plantName = this.id;
     if (this.new_update!="") this.updates.push({date:  Date.now(),description: this.new_update});
     this.original_plant.updates = this.updates;
-    this.new_plant ={ username: this.original_plant.username,plantName: name, plantaManual:this.original_plant }
-    console.log(this.new_plant);
-    try {this._inventoryService.editInventory(this.new_plant)} catch(e){console.log(e)};
-    console.log("wou");
+    this.new_plant ={ username: this.original_plant.username,plantName: name, plantaManual:this.original_plant };
+
+    this._inventoryService.editInventory(this.new_plant).subscribe(
+      res => {
+        console.log(res);
+      },
+      err => console.log(err)
+    )
+    //this._inventoryService.editInventory(this.new_plant);
   }
 
   deletePlant( date: number ,  descrip: string ):void{
