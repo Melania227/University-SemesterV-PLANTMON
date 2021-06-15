@@ -17,7 +17,7 @@ export interface Monitoring{
 export interface MonitoringToEdit{
     username: string;
     plantName: string;
-    plantaManual: Monitoring;
+    plantaSensor: Monitoring;
 }
 
 export interface MonitoringToGetPlant{
