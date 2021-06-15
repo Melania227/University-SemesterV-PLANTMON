@@ -105,12 +105,12 @@ void loop(){
   if(digitalRead(5) == HIGH){
     http.begin(client,host);
     http.addHeader("Content-Type", "application/json");
-    httpResponseCode = http.POST(" {\"sensorIdentifier\": \"D\", \"type\": \"luz\",\"data\":\"bajo\"}");
+    httpResponseCode = http.POST(" {\"sensorIdentifier\": \"D\", \"type\": \"riego\",\"data\":\"bajo\"}");
    }
    else {
     http.begin(client,host);
     http.addHeader("Content-Type", "application/json");
-    httpResponseCode = http.POST(" {\"sensorIdentifier\": \"D\", \"type\": \"luz\",\"data\":\"alto\"}");
+    httpResponseCode = http.POST(" {\"sensorIdentifier\": \"D\", \"type\": \"riego\",\"data\":\"alto\"}");
    }
   Serial.print("HTTP Response code: ");
   Serial.println(httpResponseCode);
