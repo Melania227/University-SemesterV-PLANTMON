@@ -129,14 +129,13 @@ export class SPlantDetailComponent implements OnInit {
     let ident = list[0].sensorIdentifier;
     let promedio: number = 0;
     for (var i = 0; i < list.length; i++) {
-      if (ident==='A' || ident==='B')
+      if (ident=='A' || ident=='B')
         (promedio += Number(list[i].data.replace('°C', '')))
       else {
         ident!= 'C' ? (promedio += list[i].data == 'bajo' ? 1 : 0) : Number(list[i].data) < 500 ? 1 : 0;
       }
     }
-    if (ident == 'D') {
-      promedio = i / 2 > promedio ? 0 : 1;
+    if (ident == 'D' || ident == 'C') {
       return promedio;
     }
     return promedio / i;
