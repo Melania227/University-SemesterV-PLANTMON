@@ -34,14 +34,15 @@
               [(ngModel)]="id"
             />
 
-            <button class="btn mr-3" (click)="guardar()">Guardar</button>
-            <button class="btn px-4" [routerLink]="['/inventory/list']">
+            <button class="btn mr-3 mt-4" (click)="guardar()">Guardar</button>
+            <button class="btn px-4 mt-4" [routerLink]="['/inventory/list']">
               Volver
             </button>
           </div>
         </div>
         <div class="card-body mt-3">
           <div class="mb-5">
+            <h4>Agregue un nuevo estado</h4>
             <textarea
               required
               ngModel
@@ -50,7 +51,7 @@
               id="nuevo"
               class="form-control"
               rows="3"
-              placeholder="¡Ingresa aquí un nuevo control!"
+              placeholder="¿Cómo se encuentra la planta hoy?"
               [(ngModel)]="new_update"
             ></textarea>
           </div>
@@ -60,9 +61,7 @@
                 {{ update.date | date: "fullDate" }}
                 <button
                   style="all: unset"
-                  (click)="
-                    triggerModal(modalData, update.date, update.description)
-                  "
+                  (click)="triggerModal(modalData, update.date, update.description)"
                 >
                   <i class="fas fa-pencil-alt mx-2"></i></button
                 ><button

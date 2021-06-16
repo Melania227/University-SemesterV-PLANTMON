@@ -19,15 +19,15 @@ button:focus {
 
 button{
     width: 100%;
-    background: white;
+    background-color: rgb(192, 171, 120);
     font-size: 30px;
     margin: 0;
     margin-bottom: 5px;
     size: inherit;
     font-family: 'Roboto', sans-serif;
-    border-width: 2px;
+    border-width: 5px;
     border-style: solid;
-    border-bottom-color: black;
+    border-bottom-color: rgb(255, 255, 255);
 }
 
 .square{
@@ -40,6 +40,7 @@ button{
 .card{
     flex-direction: row;
     padding: 0;
+    background-color: rgb(192, 171, 120);
 }
 
 .card-body{

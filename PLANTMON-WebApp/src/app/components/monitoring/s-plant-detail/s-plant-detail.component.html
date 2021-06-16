@@ -42,18 +42,21 @@
             ></i>
           </div>
         </div>
-        <button class="btn" [routerLink]="['/monitoring/list']">Volver</button>
+        <button class="btn mt-5 " [routerLink]="['/monitoring/list']">Volver</button>
       </div>
 
       <div class="card-body mt-1">
         <h1 class="text-center">{{ id }}</h1>
+        <hr class="dotted">
         <div class="updates">
           <div class="mb-2" *ngFor="let update of updates">
             <h4 class="card-title">{{ update.date | date: "fullDate" }}</h4>
             <p class="card-text">{{ update.description }}</p>
           </div>
         </div>
-        <div class="mb-2">
+        <div class="my-2">
+          <hr class="dotted">
+
           <p> {{ Humedad }}</p>
           <p>{{ Temp }}</p>
           <p> {{ Luz }}</p>
