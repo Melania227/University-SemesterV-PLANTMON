@@ -34,3 +34,8 @@ export interface SensorData{
 }
 
 
+export interface DatesData{
+    type: string,
+    date: string[]
+}
+

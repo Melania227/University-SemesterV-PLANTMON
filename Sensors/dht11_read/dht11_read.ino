@@ -82,7 +82,7 @@ void loop(){
     
   http.end();
 
-  
+   
   http.begin(client,host);
   http.addHeader("Content-Type", "application/json");
   httpResponseCode = http.POST(" {\"sensorIdentifier\": \"B\", \"type\": \"humedad\",\"data\":"+String(humedad) +"}");
