@@ -10,7 +10,7 @@ import { MonitoringService } from 'src/app/services/monitoring.service';
 })
 export class SPlantListComponent implements OnInit {
  
-  plantMonitoring: any;
+  plantMonitoring: Monitoring[];
 
   constructor(
     private _MonitoringService: MonitoringService, 
@@ -20,11 +20,7 @@ export class SPlantListComponent implements OnInit {
   ngOnInit(): void {
     let userActual =  localStorage.getItem('username');
     this._MonitoringService.getMonitoringByUser(userActual).subscribe(res => {
-      console.log(res);
-      this.plantMonitoring = [res];
-      console.log(this.plantMonitoring );
-      console.log("hi");
-
+      this.plantMonitoring = res;
     });
   }
 
