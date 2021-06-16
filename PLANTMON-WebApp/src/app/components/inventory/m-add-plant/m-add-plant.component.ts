@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { InventoryService } from 'src/app/services/inventory.service';
 import { Inventory } from "../../../models/inventory.model";
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-m-add-plant',
@@ -17,7 +18,8 @@ export class MAddPlantComponent implements OnInit {
 
   constructor(
     private _inventoryService: InventoryService, 
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -37,13 +39,14 @@ export class MAddPlantComponent implements OnInit {
  
      this._inventoryService.newReminder(this.newPlant).subscribe(
          res => {
-           console.log(res);
-         },
-         err => console.log(err)
-     )
+            this.router.navigate(['/inventory/', 'list']); 
+            this.toastr.success('La planta ha sido añadida al inventario manual con éxito', '¡Planta añadida!');
+          },
+          err => this.toastr.error('La planta no pudo ser añadida al inventario, favor revisar los datos ingresados', 'ERROR')
+        )
  
      /* this.popNotificationService.success("User successfully created");*/
-     this.router.navigate(['/inventory/', 'list']); 
+     
   }
 
 }

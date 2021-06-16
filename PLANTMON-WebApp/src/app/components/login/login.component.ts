@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { UserLogin } from "../../models/user.model";
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,8 @@ export class LoginComponent implements OnInit {
   
   constructor(
     private _userService: UserService, 
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -32,15 +34,16 @@ export class LoginComponent implements OnInit {
 
     this._userService.logIn(this.newUser).subscribe(
       res => {
-        console.log(res);
         localStorage.setItem('username', res.username);
         localStorage.setItem('tipo', res.type);
+        this.router.navigate(['/', 'home']);
+        this.toastr.success('Sesión iniciada con éxito', '¡Bienvenido!');
       },
-      err => console.log(err)
+      err => this.toastr.error('Inicio de sesión inválido, corrobore las credenciales', 'ERROR')
     )
 
     /* this.popNotificationService.success("User successfully created");*/
-    this.router.navigate(['/', 'home']); 
+     
   }
 
 }

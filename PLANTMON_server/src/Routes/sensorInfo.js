@@ -15,8 +15,7 @@ router.get('/:sensorId', async(req, res) => {
         console.log(sensorInfo);
         res.json(sensorInfo);
     } catch (error) {
-        console.log(error);
-        res.json('Error SOS!!');
+        res.json({ message: error });
     }
 
 });
@@ -26,8 +25,7 @@ router.get('/', async(req, res) => {
     try {
         const sensorInfo = await SensorInfo.find();
     } catch (error) {
-        console.log(error);
-        res.json('Error SOS!!');
+        res.json({ message: error });
     }
 
 });
@@ -52,7 +50,7 @@ router.post('/', async(req, res) => {
             console.log(req.body)
             await sensorInfo.save(function(err) {
                 if (err) {
-                    res.json('ERROR');
+                    res.json({ message: err });
                 } else {
                     saveSensorInfo = sensorInfo.toObject();
                     res.json(saveSensorInfo);
@@ -60,9 +58,9 @@ router.post('/', async(req, res) => {
             }); //metodo de mongoose para guardar 
 
         } else
-            res.json('Error1')
+            res.status(401).send('Error');
     } catch {
-        res.json('Error2');
+        res.status(401).send('Error');
     }
 });
 
