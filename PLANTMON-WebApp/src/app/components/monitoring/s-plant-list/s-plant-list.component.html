@@ -15,7 +15,6 @@
                     <button class="btn btnAdd px-5 py-4 m-5" [routerLink]="['/monitoring/add']"><i class="fas fa-plus"></i></button>
                 </div>
             </div>
-            <div *ngIf="hayPlants!=0">
                 <div *ngFor="let plant of plantMonitoring" class="col-lg-4 mb-5">
                     <div class="card text-left">
                         <div class="text-center mt-1">
@@ -31,10 +30,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 text-center btnAddClass">
+                <div *ngIf="hayPlants!=0" class="col-lg-4 text-center btnAddClass">
                     <button class="btn btnAdd px-5 py-4 m-5" [routerLink]="['/monitoring/add']"><i class="fas fa-plus"></i></button>
                 </div>
             </div>
-        </div>
     </div>
 </body>
