@@ -16,7 +16,7 @@ router.get('/', async(req, res) => {
 
         res.json(user);
     } catch (error) {
-        res.json('ERROR');
+        res.json({ message: error });
     }
 
 });
@@ -53,7 +53,7 @@ router.get('/:username', async(req, res) => {
         console.log(user);
         res.json(user);
     } catch (error) {
-        res.json('Error SOS!!');
+        res.json({ message: error });
     }
 
 });
@@ -148,7 +148,7 @@ router.post('/', async(req, res) => {
 
             await user.save(function(err) {
                 if (err) {
-                    res.json('ERROR');
+                    res.json({ message: err });
                 } else {
                     saveUser = user.toObject();
                     delete saveUser.password;
@@ -157,9 +157,9 @@ router.post('/', async(req, res) => {
             }); //metodo de mongoose para guardar 
 
         } else
-            res.json('Error1')
+            res.status(401).send('Error');
     } catch {
-        res.json('Error2');
+        res.status(401).send('Error');
     }
 });
 

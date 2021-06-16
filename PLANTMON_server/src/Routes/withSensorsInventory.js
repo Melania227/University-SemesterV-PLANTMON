@@ -14,7 +14,7 @@ router.get('/', async(req, res) => {
 
         res.json(sensorsInventory);
     } catch (error) {
-        res.json('ERROR');
+        res.json({ message: error });
     }
 
 });
@@ -28,7 +28,7 @@ router.get('/:username', async(req, res) => {
         const sensorsInventory = await SensorsInventory.find({ username: req.params.username });
         res.json(sensorsInventory);
     } catch (error) {
-        res.json('Error SOS!!');
+        res.json({ message: error });
     }
 
 });
@@ -65,7 +65,7 @@ router.patch('/', async(req, res) => {
         }
 
     } catch (error) {
-        console.error();
+        res.json({ message: error });
     }
 
 });
@@ -111,7 +111,7 @@ router.post('/', async(req, res) => {
 
             await sensorsInventory.save(function(err) {
                 if (err) {
-                    res.json('ERROR');
+                    res.json(err);
                 } else {
                     saveSensorsInventory = sensorsInventory.toObject();
                     res.json(saveSensorsInventory);
@@ -119,9 +119,9 @@ router.post('/', async(req, res) => {
             }); //metodo de mongoose para guardar 
 
         } else
-            res.json('Error1')
+            res.status(401).send('Error');
     } catch {
-        res.json('Error2');
+        res.status(401).send('Error');
     }
 });
 

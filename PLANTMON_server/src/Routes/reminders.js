@@ -14,7 +14,7 @@ router.get('/', async(req, res) => {
 
         res.json(reminder);
     } catch (error) {
-        res.json('ERROR');
+        res.json({ message: error });
     }
 
 });
@@ -91,7 +91,7 @@ router.post('/', async(req, res) => {
 
             await reminder.save(function(err) {
                 if (err) {
-                    res.json('ERROR');
+                    res.json({ message: err });
                 } else {
                     savedReminder = reminder.toObject();
                     res.json(savedReminder);
@@ -99,9 +99,9 @@ router.post('/', async(req, res) => {
             }); //metodo de mongoose para guardar 
 
         } else
-            res.json('Error1')
+            res.status(401).send('Error');
     } catch {
-        res.json('Error2');
+        res.status(401).send('Error');
     }
 });
 

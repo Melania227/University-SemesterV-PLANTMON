@@ -13,7 +13,7 @@ router.get('/', async(req, res) => {
         const info = await PlantInfo.find();
         res.json(info);
     } catch (error) {
-        res.json('ERROR');
+        res.json({ message: error });
     }
 
 });
@@ -27,7 +27,7 @@ router.get('/:name', async(req, res) => {
         const info = await PlantInfo.findOne({ name: req.params.name });
         res.json(info);
     } catch (error) {
-        res.json('Error SOS!!');
+        res.json({ message: error });
     }
 
 });
@@ -93,9 +93,9 @@ router.post('/', async(req, res) => {
             }); //metodo de mongoose para guardar 
 
         } else
-            res.json('Theres another plant with this name already')
+            res.status(401).send('Error');
     } catch {
-        res.json('Error2');
+        res.status(401).send('Error');
     }
 });
 
