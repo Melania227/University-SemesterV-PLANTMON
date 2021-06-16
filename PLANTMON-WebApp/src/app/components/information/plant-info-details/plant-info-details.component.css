@@ -15,8 +15,9 @@ body{
 }
 
 .btnGroup button{
-    font-size: 30px;
+    font-size: 20px !important;
     display: block;
+   
 }
 
 button:focus {
@@ -26,15 +27,15 @@ button:focus {
 
 button{
     width: 100%;
-    background: white;
-    font-size: 30px;
+    
+    font-size: 20px !important;
     margin: 0;
     margin-bottom: 5px;
     size: inherit;
     font-family: 'Roboto', sans-serif;
-    border-width: 2px;
+    border-width: 5px;
     border-style: solid;
-    border-bottom-color: black;
+    border-bottom-color: rgb(255, 255, 255);
 }
 
 .square{
@@ -61,6 +62,7 @@ img{
     border-right-style: solid;
     border-color: black;
     border-right-width: 1px;
+    background-color: rgb(192, 171, 120);
 }
 
 .text{

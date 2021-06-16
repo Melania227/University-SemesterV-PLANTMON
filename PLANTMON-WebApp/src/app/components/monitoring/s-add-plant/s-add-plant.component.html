@@ -10,7 +10,8 @@
 </head>
 
 <body>
-    <div class="container p-5 square">
+    <div class="p-3">
+    <div class="container p-3 square">
         <div class="container my-5">
             <div class="card text-left">
                 <div class="sideInfo">
@@ -27,7 +28,7 @@
                             </div>
                         </div>
                         <div class="form-group mb-3">
-                            <label for="familiaPlanta">Familia</label>
+                            <label for="familiaPlanta">Tipo</label>
                             <input required ngModel name="familiaPlanta" #familiaPlanta="ngModel" id="familiaPlanta" type="text" class="form-control" placeholder="Ingrese la familia a la que pertenece su planta">
                             <div class="alert" *ngIf="familiaPlanta.touched && !familiaPlanta.valid">
                                 <p class="m-0">(*) Espacio requerido</p>
@@ -62,6 +63,6 @@
                 </div>
             </div>
         </div>        
-    </div>
+    </div></div>
 </body>
 

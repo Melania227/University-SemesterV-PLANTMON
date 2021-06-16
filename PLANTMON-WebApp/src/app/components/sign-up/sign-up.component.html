@@ -6,12 +6,28 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="header-img">
-        <img src="../../../assets/imgs/header-background.png" class="responsive" alt="">
-    </div>
+
+    <nav class="navbar navbar-expand-lg">
+        <!-- <div class="container-fluid"> -->
+            <div class="justify-content-right mx-3">
+                <h2><i class="fab fa-pagelines"></i>PLANTMON</h2>
+            </div>
+            <button class="navbar-toggler btt" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="iconNav fas fa-list-alt"></i>
+            </button>
+            
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="nav navbar-nav ml-auto w-100 justify-content-end ">
+                    <button class="btn py-2 btt" type="button" (click)="logout()">
+                        <i class="far fa-times-circle iconLogout "></i>
+                    </button>
+                </ul>
+            </div>
+        <!-- </div> -->
+    </nav>
     <div class="body">
         <div>
-            <p class="p-5 text-white">.</p>
+            <p class="p-3 text-white">.</p>
         </div>
         <div class="card text-left">
             <img src="../../../assets/imgs/bg-login.jpg" alt="">
@@ -59,7 +75,7 @@
             </div>
         </div>
         <div>
-            <p class="p-5 m-0 text-white">.</p>
+            <p class="p-3 m-0 text-white">.</p>
         </div>
     </div>
 </body>

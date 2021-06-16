@@ -7,9 +7,10 @@
 </head>
 
 <body>
-    <div class="container p-5 mt-0 square">
+    <div class="p-3">
+    <div class="container p-3 mt-0 square">
         <app-no-plants-available *ngIf="hayPlants==0"></app-no-plants-available>
-        <div *ngFor="let plant of plantInventory; index as i" class="plantsRegistered my-2">
+        <div *ngFor="let plant of plantInventory; index as i" class="plantsRegistered my-1">
             <div class="card text-left">
                 <div class="btnGroup">
                     <button class="btn mx-2 my-3" [routerLink]="['/inventory/detail', plant.plantName]"><i class="fas fa-exclamation-circle"></i></button>
@@ -28,4 +29,5 @@
             <button class="btn btnAdd px-5 py-4 m-5" [routerLink]="['/inventory/add']"><i class="fas fa-plus"></i></button>
         </div>
     </div>
+</div>
 </body>
