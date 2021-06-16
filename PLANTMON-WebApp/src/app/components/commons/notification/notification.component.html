@@ -38,9 +38,9 @@
         </div>
       </div>
     </div>
-
     <div *ngFor="let d of data">
-    
+      <p class="pt-4">{{ d.day }}</p>
+
       <div *ngFor="let reminder of d.reminders; index as i">
         <div class="row mt-4">
           <div class="card text-left">
