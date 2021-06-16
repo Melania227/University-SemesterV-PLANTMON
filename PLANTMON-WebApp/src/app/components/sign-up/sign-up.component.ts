@@ -39,6 +39,8 @@ export class SignUpComponent implements OnInit {
      this._userService.signUp(this.newUser).subscribe(
          res => {
            console.log(res);
+           localStorage.setItem('username', res.username);
+           localStorage.setItem('tipo', res.type);
          },
          err => console.log(err)
      )

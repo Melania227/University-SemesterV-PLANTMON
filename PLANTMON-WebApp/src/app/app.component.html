@@ -1,2 +1,2 @@
-<app-header></app-header>
+<app-header *ngIf="!(hasRoute('init') || hasRoute('login') || hasRoute('signup'))"></app-header>
 <router-outlet></router-outlet>
