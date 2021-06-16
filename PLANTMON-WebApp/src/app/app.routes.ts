@@ -22,7 +22,7 @@ import { RemindersComponent } from "./components/reminders/reminders.component";
 import { SignUpComponent } from "./components/sign-up/sign-up.component";
 
 const APP_ROUTES : Routes = [
-    {path: 'home', component: HomeComponent},
+    {path: 'home', component: HomeComponent, canActivate: [GuardGuard]},
     {path: 'inventory',
         component: InventoryComponent, canActivate: [GuardGuard],
         children:[

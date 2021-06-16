@@ -117,10 +117,10 @@ export class SPlantDetailComponent implements OnInit {
         );
         if (actual_type == 'B') {
           this.p_Humedad.push(this.DataAnalyzer(ar));
-          this.Humedad = "Humedad: " + firstData;
+          this.Humedad = "Humedad: " + firstData + "%";
         } else if (actual_type == 'A') {
           this.p_Temp.push(this.DataAnalyzer(ar));
-          this.Temp = "Temperatura: " + firstData;
+          this.Temp = "Temperatura: " + firstData + "°C";
         } else if (actual_type == 'D') {
           let value: number = this.DataAnalyzer(ar);
           let l: number = ar.length;
