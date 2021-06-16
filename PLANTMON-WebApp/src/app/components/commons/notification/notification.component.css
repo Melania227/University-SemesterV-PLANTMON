@@ -1,0 +1,45 @@
+.dateText{
+    font-family:  'Roboto', sans-serif;
+    font-size: 30px;
+    /* text-align: center; */
+}
+.square{
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    margin-top: 50px;
+    padding-top: 140px;
+    padding-bottom: 140px;
+}
+
+.card-img-top{
+    max-height: 150px;
+    max-width: 120px;
+    padding-top: 30px;
+    margin-bottom: 20px;
+}
+
+.card{
+    margin: 0 auto;
+    max-width: 900px;
+    background-color: hsl(39, 50%, 57%,0.7);
+    flex-direction: row;
+    font-family:  'Roboto', sans-serif;
+    border-radius: 20px;
+}
+
+.card-img{
+    max-width: 100px;
+    max-height: 100px;
+}
+button{
+    float: right;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* .card-body{
+    display: flex;
+} */

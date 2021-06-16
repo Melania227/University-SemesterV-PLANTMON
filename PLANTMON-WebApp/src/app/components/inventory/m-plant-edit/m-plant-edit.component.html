@@ -1,0 +1,125 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+
+  <!-- ROBOTO FONT -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+  <div class="p-3">
+    <div class="container square">
+      <div class="card text-left">
+        <div class="plantGroup">
+          <img
+            class="card-img-top"
+            src="../../../../assets/imgs/plant-icon3.png"
+            alt=""
+          />
+          <div class="card-body">
+            <input
+              required
+              ngModel
+              name="nombrePlanta"
+              #nombrePlanta="ngModel"
+              id="nombrePlanta"
+              type="text"
+              class="form-control mb-2 text-center"
+              [(ngModel)]="id"
+            />
+
+            <button class="btn mr-3 mt-4" (click)="guardar()">Guardar</button>
+            <button class="btn px-4 mt-4" [routerLink]="['/inventory/list']">
+              Volver
+            </button>
+          </div>
+        </div>
+        <div class="card-body mt-3">
+          <div class="mb-5">
+            <h4>Agregue un nuevo estado</h4>
+            <textarea
+              required
+              ngModel
+              name="nuevo"
+              #motivo="ngModel"
+              id="nuevo"
+              class="form-control"
+              rows="3"
+              placeholder="¿Cómo se encuentra la planta hoy?"
+              [(ngModel)]="new_update"
+            ></textarea>
+          </div>
+          <div class="scrl">
+            <div class="mb-3" *ngFor="let update of updates">
+              <h4 class="card-title">
+                {{ update.date | date: "fullDate" }}
+                <button
+                  style="all: unset"
+                  (click)="triggerModal(modalData, update.date, update.description)"
+                >
+                  <i class="fas fa-pencil-alt mx-2"></i></button
+                ><button
+                  style="all: unset"
+                  (click)="deletePlant(update.date, update.description)"
+                >
+                  <i class="fas fa-times-circle"></i>
+                </button>
+              </h4>
+              <p class="card-text">{{ update.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+<ng-template #modalData let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Editar</h4>
+    <button
+      type="button"
+      class="close"
+      aria-label="Close"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group">
+        <label for="date"
+          >Actualización:{{ actual_d | date: "fullDate" }}</label
+        >
+        <div class="input-group">
+          <textarea
+            required
+            ngModel
+            name="actual_des"
+            id="actual_des"
+            class="form-control"
+            rows="2"
+            placeholder="¡Ingresa aquí un nuevo control!"
+            [(ngModel)]="actual_des"
+          ></textarea>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button
+      type="button"
+      class="btn btn-outline-dark"
+      (click)="modal.close('Save click')"
+    >
+      Guardar
+    </button>
+  </div>
+</ng-template>

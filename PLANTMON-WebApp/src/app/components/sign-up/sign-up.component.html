@@ -1,0 +1,81 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">  
+    
+    <!-- ROBOTO FONT -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg">
+        <!-- <div class="container-fluid"> -->
+            <div class="justify-content-right mx-3">
+                <h2><i class="fab fa-pagelines"></i>PLANTMON</h2>
+            </div>
+            <button class="navbar-toggler btt" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="iconNav fas fa-list-alt"></i>
+            </button>
+            
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                <ul class="nav navbar-nav ml-auto w-100 justify-content-end ">
+                    <button class="btn py-2 btt" type="button" (click)="logout()">
+                        <i class="far fa-times-circle iconLogout "></i>
+                    </button>
+                </ul>
+            </div>
+        <!-- </div> -->
+    </nav>
+    <div class="body">
+        <div>
+            <p class="p-3 text-white">.</p>
+        </div>
+        <div class="card text-left">
+            <img src="../../../assets/imgs/bg-login.jpg" alt="">
+            <div class="card-body display-inline">
+                <h4 class="card-title my-5 text-center">Iniciar sesión</h4>
+                <form class="m-5" #userSignUpForm="ngForm">
+                    <div class="form-group mb-3">
+                        <label for="email">Correo electrónico</label>
+                        <input type="email" required ngModel name="email" #email="ngModel" class="form-control" id="email" placeholder="Introduzca su correo electrónico">
+                        <div class="alert" *ngIf="email.touched && !email.valid">
+                            <p class="m-0">(*) Espacio requerido</p>
+                        </div>
+                    </div>
+                    <div class="form-group mb-4">
+                        <label for="password">Contraseña</label>
+                        <input type="password" required ngModel name="password" #password="ngModel" class="form-control" id="password" placeholder="Ingrese su contraseña">
+                        <div class="alert" *ngIf="password.touched && !password.valid">
+                            <p class="m-0">(*) Espacio requerido</p>
+                        </div>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="date">Fecha de nacimiento</label>
+                        <input type="date" required ngModel name="date" #date="ngModel" class="form-control" id="date">
+                        <div class="alert" *ngIf="date.touched && !date.valid">
+                            <p class="m-0">(*) Espacio requerido</p>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo">Tipo de usuario</label>
+                        <select required ngModel name="tipo" #tipo="ngModel" class="form-control" id="tipo">
+                            <option value="" selected disabled hidden>Elige un tipo</option>
+                            <option value="Profesional" selected>Profesional</option>
+                            <option value="Aficionado">Aficionado</option>
+                        </select>
+                        <div class="alert" *ngIf="tipo.touched && !tipo.valid">
+                            <p class="m-0">(*) Espacio requerido</p>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn px-4 py-2 my-4" (click)="sendData(userSignUpForm)" [disabled]="!email.valid || !password.valid">Crear</button>
+                        <br>
+                        <button class="btn px-4 py-2 mb-4" [routerLink]="['/login']">Volver</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div>
+            <p class="p-3 m-0 text-white">.</p>
+        </div>
+    </div>
+</body>

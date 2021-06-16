@@ -1,0 +1,136 @@
+.responsive {
+    width: 100%;
+    height: auto;
+}
+
+.body{
+    background-image: url('../../../assets/imgs/circle-background.png');
+}
+
+.card{
+    margin: 0 auto;
+    max-width: 1000px;
+    background-color: hsl(39, 50%, 57%,0.6);
+    font-family:  'Roboto', sans-serif;
+    border-radius: 20px;
+    
+    flex-direction: row;
+}
+
+.card-body h4{
+    font-weight: 500;
+    font-size: 40px;
+}
+
+.card img{
+    /* margin: auto auto; */
+    width: 400px;
+    height: auto;
+    border-radius: 20px;
+}
+
+.card-body h4{
+    font-family: 'Roboto', sans-serif;
+    font-weight: bolder;
+    font-size: 60px;
+    color: black;
+}
+
+button{
+    background-color: #3A5219;
+    color: white;
+    font-weight: 300;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+button:hover {
+    color: white;
+}
+
+form{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    color: black;
+}
+
+input::placeholder{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.form-control::shadow{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+select option{
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    font-size: 15px;
+}
+
+.alert p{
+    color: red;
+    font-size: 15px;
+}
+
+.ng-valid[required], .ng-valid.required  {
+    border-left: 5px solid #42A948; /* green */
+}
+
+.ng-invalid:not(form)  {
+border-left: 5px solid #a94442; /* red */
+}
+
+.alert div {
+background-color: #fed3d3;
+color: #820000;
+padding: 1rem;
+margin-bottom: 1rem;
+}
+
+
+.navbar{
+    color: black;
+    background-color: #75A72F;
+    -webkit-box-shadow: 0 8px 6px -6px rgb(117, 117, 117);
+    -moz-box-shadow: 0 8px 6px -6px rgb(117, 117, 117);
+    box-shadow: 0 8px 6px -6px rgb(117, 117, 117);
+}
+
+
+.navbar {
+    padding: 0 0;
+}
+
+.btt:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.iconNav{
+    font-size: 50px;
+}
+
+.iconLogout{
+    font-size: 55px;
+    color: black;
+}
+
+.iconLogout:hover{
+    font-size: 55px;
+    color: white;
+}
+
+.btt{
+    background-color: #75A72F;
+}

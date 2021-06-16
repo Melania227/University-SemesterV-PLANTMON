@@ -1,0 +1,68 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+  />
+
+  <!-- ROBOTO FONT -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+    rel="stylesheet"
+  />
+</head>
+
+<body>
+  <div class="container square">
+    <div class="card text-left">
+      <div class="plantGroup" style="max-width: 450px">
+        <div class="row mb-2">
+          <div class="col">
+            <img
+              class="card-img-top mb-2"
+              src="../../../../assets/imgs/imgOval2.png"
+              alt=""
+            />
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-1 justify-content-center">
+            <i
+              (click)="draw('l')"
+              class="fas fa-angle-left text-center w-8"
+            ></i>
+          </div>
+          <div class="col-10">
+            <canvas height="300px" id="myChart"></canvas>
+          </div>
+          <div class="col-1">
+            <i
+              (click)="draw('r')"
+              class="fas fa-angle-right text-center w-8"
+            ></i>
+          </div>
+        </div>
+        <button class="btn mt-5 " [routerLink]="['/monitoring/list']">Volver</button>
+      </div>
+
+      <div class="card-body mt-1">
+        <h1 class="text-center">{{ id }}</h1>
+        <hr class="dotted">
+        <div class="updates">
+          <div class="mb-2" *ngFor="let update of updates">
+            <h4 class="card-title">{{ update.date | date: "fullDate" }}</h4>
+            <p class="card-text">{{ update.description }}</p>
+          </div>
+        </div>
+        <div class="my-2">
+          <hr class="dotted">
+
+          <p> {{ Humedad }}</p>
+          <p>{{ Temp }}</p>
+          <p> {{ Luz }}</p>
+          <p> {{ Riego }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
