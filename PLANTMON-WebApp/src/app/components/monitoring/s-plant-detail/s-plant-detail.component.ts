@@ -25,8 +25,8 @@ export class SPlantDetailComponent implements OnInit {
   actual_in_chart_: string;
   p_Humedad: number[] = [];
   p_Temp: number[] = [];
-  p_Luz: number[] = [];
-  p_Riego: number[] = [];
+  p_Luz: number[][] = [];
+  p_Riego: number[][] = [];
   Humedad: string;
   Temp: string;
   Luz: string;
@@ -114,11 +114,17 @@ export class SPlantDetailComponent implements OnInit {
         } else if (actual_type == 'A') {
           this.p_Temp.push(this.analizeData(ar));
           this.Temp = firstData;
-        } else if (actual_type == 'D') {
-          this.p_Riego.push(this.analizeData(ar));
+       } else if (actual_type == 'D') {
+          let value:number = this.analizeData(ar);
+          let l :number=  ar.length;
+          this.p_Riego.push([value,( l - value)]);
           this.Riego = firstData;
+          //console.log(ar); console.log(this.analizeData(ar)); console.log("********************");
         } else {
-          this.p_Luz.push(this.analizeData(ar));
+          let value:number = this.analizeData(ar);
+          let l :number=  ar.length;
+          this.p_Luz.push([value, ( l - value)]);
+          console.log(ar); console.log(this.analizeData(ar)); console.log("********************");
           this.Luz = firstData;
         }
       }
@@ -132,7 +138,8 @@ export class SPlantDetailComponent implements OnInit {
       if (ident=='A' || ident=='B')
         (promedio += Number(list[i].data.replace('°C', '')))
       else {
-        ident!= 'C' ? (promedio += list[i].data == 'bajo' ? 1 : 0) : Number(list[i].data) < 500 ? 1 : 0;
+        if (ident != 'C') list[i].data == "alto" ? promedio += 1 : 0;
+        else Number(list[i].data.replace('°C', '')) < 500 ? promedio +=1 : 0;
       }
     }
     if (ident == 'D' || ident == 'C') {
@@ -157,14 +164,13 @@ export class SPlantDetailComponent implements OnInit {
               'rgba(255, 255, 255, 0.5)',
             ],
             borderColor: [
-              'rgba(255, 255, 255 1)',
               'rgba(255, 255, 255, 1)',
               'rgba(255, 255, 255, 1)',
               'rgba(255, 255, 255, 1)',
             ],
             borderWidth: 1,
             barThickness: 25,
-          },
+          }
         ],
       },
       options: {
@@ -204,6 +210,7 @@ export class SPlantDetailComponent implements OnInit {
         },
       },
     } as any);
+
     this.myChart.render();
   }
 
@@ -214,6 +221,7 @@ export class SPlantDetailComponent implements OnInit {
     let actual = this.sensors[0];
 
     if (actual == 'B') {
+      if(this.myChart.data.datasets.length!=1) this.myChart.data.datasets.pop();
       this.myChart.options.plugins.title.text = 'Humedad';
       for (let i = 0; i < this.p_Humedad.length; i++) {
         this.myChart.data.datasets[0].data[i] = this.p_Humedad[i];
@@ -229,6 +237,7 @@ export class SPlantDetailComponent implements OnInit {
         }
       }
     } else if (actual == 'A') {
+      if(this.myChart.data.datasets.length!=1) this.myChart.data.datasets.pop();
       this.myChart.options.plugins.title.text = 'Temperatura';
       for (let i = 0; i < this.p_Temp.length; i++) {
         this.myChart.data.datasets[0].data[i] = this.p_Temp[i];
@@ -242,13 +251,49 @@ export class SPlantDetailComponent implements OnInit {
       }
     } else if (actual == 'C') {
       this.myChart.options.plugins.title.text = 'Intensidad Solar';
+      this.myChart.data.datasets.push({
+        data: [0,0,0],
+        backgroundColor: [
+          'rgba(255, 255, 255, 0.5)',
+          'rgba(255, 255, 255, 0.5)',
+          'rgba(255, 255, 255, 0.5)',
+          'rgba(255, 255, 255, 0.5)',
+        ],
+        borderColor: [
+          'rgba(255, 255, 255, 1)',
+          'rgba(255, 255, 255, 1)',
+          'rgba(255, 255, 255, 1)',
+        ],
+        borderWidth: 1,
+        barThickness: 25 });
       for (let i = 0; i < this.p_Luz.length; i++) {
-        this.myChart.data.datasets[0].data[i] = this.p_Luz[i];
-        
+        this.myChart.data.datasets[0].data[i] = this.p_Luz[i][0];
+        this.myChart.data.datasets[1].data[i] = this.p_Luz[i][1];
       }
     } else {
+      if(this.myChart.data.datasets.length!=1) this.myChart.data.datasets.pop();
       this.myChart.options.plugins.title.text = 'Riego';
-      console.log('riego');
+      this.myChart.data.datasets.push({
+        data: [0,0,0],
+        backgroundColor: [
+          'rgba(255, 255, 255, 0.5)',
+          'rgba(255, 255, 255, 0.5)',
+          'rgba(255, 255, 255, 0.5)',
+          'rgba(255, 255, 255, 0.5)',
+        ],
+        borderColor: [
+          'rgba(255, 255, 255, 1)',
+          'rgba(255, 255, 255, 1)',
+          'rgba(255, 255, 255, 1)',
+        ],
+        borderWidth: 1,
+        barThickness: 25 
+      });
+      //console.log(this.p_Riego); console.log("********************");
+      for (let i = 0; i < this.p_Riego.length; i++) {
+        this.myChart.data.datasets[0].data[i] = this.p_Riego[i][0];
+        this.myChart.data.datasets[1].data[i] = this.p_Riego[i][1];
+      }
     }
     this.myChart.update();
   }
