@@ -38,6 +38,7 @@ import { RemindersListComponent } from './components/reminders/reminders-list/re
 import { CarouselComponent } from './components/commons/carousel/carousel.component';
 import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { GuardGuard } from './components/commons/guard.guard';
 
 @NgModule({
   declarations: [
@@ -83,7 +84,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     BrowserAnimationsModule
   ],
   providers: [
-    ReminderService
+    ReminderService,
+    GuardGuard
   ],
   bootstrap: [AppComponent]
 })

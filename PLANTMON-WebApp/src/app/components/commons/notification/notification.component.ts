@@ -42,7 +42,6 @@ export class NotificationComponent implements OnInit {
 
       this._reminderService.getRemindersByUser(userActual).subscribe((res) => {
         this.reminders = res;
-        this.hayReminders = res.length;
         this.orginizeReminders();
       });
       console.log(this.check);
@@ -57,8 +56,10 @@ export class NotificationComponent implements OnInit {
             list.push(reminder);
           }
         });
+        this.check ? this.hayReminders = list.length : this.hayReminders = this.reminders.length;
         if (list.length != 0) this.data.push({ day: day, reminders: list });
       });
+      console.log(this.hayReminders);
     }
 
     deleteReminder(reminder: string) {

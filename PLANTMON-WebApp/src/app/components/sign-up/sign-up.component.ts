@@ -52,4 +52,10 @@ export class SignUpComponent implements OnInit {
      
   }
 
+  
+  logout(){
+    this.router.navigate(['/', 'init']); 
+  }
+
+
 }

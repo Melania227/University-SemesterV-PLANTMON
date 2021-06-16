@@ -13,22 +13,34 @@
 </head>
 <div class="homeBody mb-0">
   <div class="container-fluid dateText">
-    <div *ngFor="let d of data">
-      <p class="pt-4">{{ d.day }}</p>
-
-      <div *ngIf="hayReminders == 0" class="container square">
-        <div class="card text-left">
-          <div class="card-body text-center mt-3">
-            <h4 class="card-title">No hay recordatorios próximos</h4>
-            <img
-              class="card-img-top mt-2"
-              src="../../../../assets/imgs/plant-icon.png"
-              alt=""
-            />
-          </div>
+    <div *ngIf="hayReminders == 0 && check == false" class="container square">
+      <div class="card text-left">
+        <div class="card-body text-center mt-3">
+          <h3 class="card-title" *ngIf="check == false" >No hay recordatorios próximos</h3>
+          <h1 class="card-title" *ngIf="check == true" >¡Bienvenido de vuelta!</h1>
+          <img
+            class="card-img-top mt-2"
+            src="../../../../assets/imgs/plant-icon.png"
+            alt=""
+          />
         </div>
       </div>
+    </div>
+    <div *ngIf="hayReminders == 0 && check == true" class="container py-5">
+      <div class="card text-left">
+        <div class="card-body text-center mt-3">
+          <h1 class="card-title" *ngIf="check == true" >¡Bienvenido de vuelta!</h1>
+          <img
+            class="card-img-top mt-2"
+            src="../../../../assets/imgs/plant-icon.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
 
+    <div *ngFor="let d of data">
+    
       <div *ngFor="let reminder of d.reminders; index as i">
         <div class="row mt-4">
           <div class="card text-left">

@@ -1,4 +1,5 @@
 import { RouterModule, Routes } from "@angular/router";
+import { GuardGuard } from "./components/commons/guard.guard";
 import { HomeComponent } from "./components/home/home.component";
 import { InformationComponent } from "./components/information/information.component";
 import { PlantInfoDetailsComponent } from "./components/information/plant-info-details/plant-info-details.component";
@@ -23,16 +24,16 @@ import { SignUpComponent } from "./components/sign-up/sign-up.component";
 const APP_ROUTES : Routes = [
     {path: 'home', component: HomeComponent},
     {path: 'inventory',
-        component: InventoryComponent,
+        component: InventoryComponent, canActivate: [GuardGuard],
         children:[
             {path: "", redirectTo: "list", pathMatch: "full"},
-            {path: 'list', component: MPlantListComponent},
+            {path: 'list', component: MPlantListComponent, },
             {path: 'add', component: MAddPlantComponent},
             {path: 'edit/:id', component: MPlantEditComponent},
             {path: 'detail/:id', component: MPlantDetailComponent}        ]
     },
     {path: 'monitoring',
-        component: MonitoringComponent,
+        component: MonitoringComponent, canActivate: [GuardGuard],
         children:[
             {path: "", redirectTo: "list", pathMatch: "full"},
             {path: 'list', component: SPlantListComponent},
@@ -42,7 +43,7 @@ const APP_ROUTES : Routes = [
         ]
     },
     {path: 'reminders',
-        component: RemindersComponent,
+        component: RemindersComponent, canActivate: [GuardGuard],
         children:[
             {path: "", redirectTo: "list", pathMatch: "full"},
             {path: 'list', component: RemindersListComponent},
@@ -50,7 +51,7 @@ const APP_ROUTES : Routes = [
         ]
     },
     {path: 'info',
-        component: InformationComponent,
+        component: InformationComponent, canActivate: [GuardGuard],
         children:[
             {path: "", redirectTo: "list", pathMatch: "full"},
             {path: 'list', component: PlantInfoListComponent},
