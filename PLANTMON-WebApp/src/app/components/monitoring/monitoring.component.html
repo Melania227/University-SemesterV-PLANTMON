@@ -1,2 +1,14 @@
 
-<router-outlet></router-outlet>
+<div *ngIf="userType!='Aficionado'">
+    <router-outlet></router-outlet>
+</div>
+
+<div class="fondo" *ngIf="userType=='Aficionado'">
+    <div class="container square mt-0 mb-5">
+        <img class="card-img-top" src="../../../../assets/imgs/cat-error.png" alt="">
+        <div class="card text-left mt-5">
+            <p>ERROR: Su cuenta no tiene acceso a esta sección</p>
+        </div>
+    </div>            
+</div>
+

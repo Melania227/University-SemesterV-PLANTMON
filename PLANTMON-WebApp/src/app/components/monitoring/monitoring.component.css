@@ -1,0 +1,31 @@
+.fondo{
+    background-image: url('../../../assets/imgs/circle-background.png');
+}
+
+.square{
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 20px;
+    margin-top: 50px;
+    padding-top: 180px;
+    padding-bottom: 180px;
+}
+
+.card{
+    margin: 0 auto;
+    max-width: 900px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-width: 0;
+    text-align: center;
+    font-size: 50px;
+    font-family:  'Roboto', sans-serif;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.card-img-top{
+    max-height: 190px;
+    max-width: 190px;
+    display:block;
+    margin:auto;
+    /* border-style: solid; */
+}
