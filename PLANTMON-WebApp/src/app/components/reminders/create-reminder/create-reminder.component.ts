@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ReminderService } from 'src/app/services/reminder.service';
 import { Reminder } from "../../../models/reminder.model";
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -17,7 +18,8 @@ export class CreateReminderComponent implements OnInit {
 
   constructor(
     private _reminderService: ReminderService, 
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -41,14 +43,12 @@ export class CreateReminderComponent implements OnInit {
     this.newReminder = {username: userActual, reason: this.motivo, day: this.diasElegidos, repeat: this.repetir};
 
     this._reminderService.newReminder(this.newReminder).subscribe(
-        res => {
-          console.log(res);
-        },
-        err => console.log(err)
+      res => {
+        this.router.navigate(['/reminders/', 'list']); 
+        this.toastr.success('El recordatorio ha sido añadido con éxito', 'Recordatorio añadido!');
+      },
+      err => this.toastr.error('El recordatorio no pudo ser añadido, favor revisar los datos ingresados', 'ERROR')
     )
-
-    /* this.popNotificationService.success("User successfully created");*/
-    this.router.navigate(['/reminders/', 'list']); 
   }
 
 

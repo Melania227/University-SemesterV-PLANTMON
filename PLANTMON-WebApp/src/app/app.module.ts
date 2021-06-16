@@ -36,6 +36,8 @@ import { MPlantListComponent } from './components/inventory/m-plant-list/m-plant
 import { SPlantListComponent } from './components/monitoring/s-plant-list/s-plant-list.component';
 import { RemindersListComponent } from './components/reminders/reminders-list/reminders-list.component';
 import { CarouselComponent } from './components/commons/carousel/carousel.component';
+import { ToastrModule } from 'ngx-toastr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -73,7 +75,12 @@ import { CarouselComponent } from './components/commons/carousel/carousel.compon
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule  
+    NgbModule,
+    ToastrModule.forRoot({
+      timeOut:2000,
+      progressBar: true
+    }),
+    BrowserAnimationsModule
   ],
   providers: [
     ReminderService

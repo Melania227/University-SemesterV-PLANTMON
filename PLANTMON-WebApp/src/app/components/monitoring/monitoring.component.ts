@@ -7,9 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MonitoringComponent implements OnInit {
 
+  userType:string;
+
   constructor() { }
 
   ngOnInit(): void {
+    this.userType=localStorage.getItem('tipo');
   }
 
 }

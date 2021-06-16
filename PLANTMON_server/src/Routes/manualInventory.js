@@ -13,8 +13,7 @@ router.get('/', async(req, res) => {
         const manualInventory = await ManualInventory.find();
         res.json(manualInventory);
     } catch (error) {
-        console.error();
-        console.log(error);
+        res.json({ message: error });
     }
     
 });
@@ -65,7 +64,7 @@ router.patch('/', async(req, res) => {
         }
 
     } catch (error) {
-        console.error();
+        res.json({ message: error });
     }
 
 });
@@ -114,7 +113,7 @@ router.post('/', async(req, res) => {
 
             await manualInventory.save(function(err) {
                 if (err) {
-                    res.json('ERROR');
+                    res.json({ message: err });
                 } else {
                     saveManualInventory = manualInventory.toObject();
                     res.json(saveManualInventory);
@@ -122,9 +121,9 @@ router.post('/', async(req, res) => {
             }); //metodo de mongoose para guardar 
 
         } else
-            res.json('Error1')
+            res.status(401).send('Error');
     } catch {
-        res.json('Error2');
+        res.status(401).send('Error');
     }
 });
 

@@ -7,7 +7,8 @@
 </head>
 
 <body>
-    <div class="container p-5 square">
+    <div class="container p-5 mt-0 square">
+        <app-no-plants-available *ngIf="hayPlants==0"></app-no-plants-available>
         <div *ngFor="let plant of plantInventory; index as i" class="plantsRegistered my-2">
             <div class="card text-left">
                 <div class="btnGroup">
