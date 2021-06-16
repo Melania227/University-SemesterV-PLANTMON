@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/app/services/user.service';
 import { User } from "../../models/user.model";
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-sign-up',
@@ -17,7 +18,8 @@ export class SignUpComponent implements OnInit {
 
   constructor(
     private _userService: UserService, 
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -38,15 +40,16 @@ export class SignUpComponent implements OnInit {
 
      this._userService.signUp(this.newUser).subscribe(
          res => {
-           console.log(res);
            localStorage.setItem('username', res.username);
            localStorage.setItem('tipo', res.type);
-         },
-         err => console.log(err)
+           this.router.navigate(['/', 'home']); 
+           this.toastr.success('Cuenta creada con éxito', '¡Bienvenido!');
+          },
+          err => this.toastr.error('Creación de cuenta inválida, corrobore los datos ingresados', 'ERROR')
      )
  
      /* this.popNotificationService.success("User successfully created");*/
-     this.router.navigate(['/', 'home']); 
+     
   }
 
 }
