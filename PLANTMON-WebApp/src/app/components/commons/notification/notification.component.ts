@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { ReminderService } from 'src/app/services/reminder.service';
 import { Reminder } from "../../../models/reminder.model";
 
@@ -13,7 +14,8 @@ export class NotificationComponent implements OnInit {
   hayReminders:number;
 
   constructor(
-    private _reminderService: ReminderService
+    private _reminderService: ReminderService,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -32,14 +34,12 @@ export class NotificationComponent implements OnInit {
     let userActual =  localStorage.getItem('username');
 
     this._reminderService.deleteReminder(userActual, reminder).subscribe(
-        res => {
-          console.log(res);
-        },
-        err => console.log(err)
+      res => {
+        this.toastr.success('El recordatorio ha sido eliminado con éxito', 'Recordatorio elimado!');
+        setTimeout(function(){ window.location.reload(); }, 2000);
+      },
+      err => this.toastr.error('El recordatorio no pudo ser eliminado, intente nuevamente', 'ERROR')
     )
-
-    /* this.popNotificationService.success("User successfully created");*/
-    window.location.reload();
   }
 
 }

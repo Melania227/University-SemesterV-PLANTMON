@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Monitoring } from 'src/app/models/monitoring.model';
 import { MonitoringService } from 'src/app/services/monitoring.service';
 
@@ -15,7 +16,8 @@ export class SPlantListComponent implements OnInit {
 
   constructor(
     private _MonitoringService: MonitoringService, 
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -32,13 +34,13 @@ export class SPlantListComponent implements OnInit {
 
     this._MonitoringService.deletePlant(userActual, plantName).subscribe(
         res => {
-          console.log(res);
+          this.toastr.success('La planta ha sido eliminada del monitoreo con éxito', '¡Planta elimada!');
+          setTimeout(function(){ window.location.reload(); }, 2000);
         },
-        err => console.log(err)
-    )
+        err => this.toastr.error('La planta no pudo ser eliminada del monitoreo, intente nuevamente', 'ERROR')
+      )
 
     /* this.popNotificationService.success("User successfully created");*/
-    window.location.reload();
   }
 
 }

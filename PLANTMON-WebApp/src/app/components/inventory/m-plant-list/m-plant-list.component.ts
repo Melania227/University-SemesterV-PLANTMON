@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { InventoryService } from 'src/app/services/inventory.service';
 import { Inventory, InventoryToEdit } from "../../../models/inventory.model";
 
@@ -14,7 +15,8 @@ export class MPlantListComponent implements OnInit {
 
   constructor(
     private _inventoryService: InventoryService, 
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -30,14 +32,14 @@ export class MPlantListComponent implements OnInit {
     let userActual =  localStorage.getItem('username');
 
     this._inventoryService.deletePlant(userActual, plantName).subscribe(
-        res => {
-          console.log(res);
-        },
-        err => console.log(err)
+      res => {
+        this.toastr.success('La planta ha sido eliminada del inventario manual con éxito', '¡Planta elimada!');
+        setTimeout(function(){ window.location.reload(); }, 2000);
+      },
+      err => this.toastr.error('La planta no pudo ser eliminada del inventario, intente nuevamente', 'ERROR')
     )
 
     /* this.popNotificationService.success("User successfully created");*/
-    window.location.reload();
   }
 
 }

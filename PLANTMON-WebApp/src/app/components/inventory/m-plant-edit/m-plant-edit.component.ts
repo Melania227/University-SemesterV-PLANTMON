@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { InventoryService } from 'src/app/services/inventory.service';
 import { Inventory, InventoryToEdit } from '../../../models/inventory.model';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -30,7 +31,8 @@ export class MPlantEditComponent implements OnInit {
     private route: ActivatedRoute,
     private _inventoryService: InventoryService,
     private router: Router,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private toastr: ToastrService
   ) { }
 
   ngOnInit(): void {
@@ -82,11 +84,10 @@ export class MPlantEditComponent implements OnInit {
 
     this._inventoryService.editInventory(this.new_plant).subscribe(
       res => {
-        console.log(res);
+        this.toastr.success('La planta ha sido modificada con éxito', '¡Planta editada!');
       },
-      err => console.log(err)
+      err => this.toastr.error('La planta no pudo ser modificada, favor revisar los datos ingresados', 'ERROR')
     )
-    //this._inventoryService.editInventory(this.new_plant);
   }
 
   deletePlant( date: number ,  descrip: string ):void{

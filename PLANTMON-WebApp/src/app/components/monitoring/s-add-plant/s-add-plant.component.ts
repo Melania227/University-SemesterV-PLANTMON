@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Monitoring } from 'src/app/models/monitoring.model';
 import { MonitoringService } from 'src/app/services/monitoring.service';
 
@@ -16,7 +17,11 @@ export class SAddPlantComponent implements OnInit {
   newPlant: Monitoring;
   fecha: number = Date.now();
 
-  constructor(private router: Router,private _MonitoringService: MonitoringService) { }
+  constructor(
+    private router: Router,
+    private _MonitoringService: MonitoringService,
+    private toastr: ToastrService
+    ) { }
 
   ngOnInit(): void {
   }
@@ -38,14 +43,11 @@ export class SAddPlantComponent implements OnInit {
  
      this._MonitoringService.newMonitoringPlant(this.newPlant).subscribe(
          res => {
-           console.log(res);
-           console.log("hola");
-         },
-         err => console.log(err)
-     )
- 
-     /* this.popNotificationService.success("User successfully created");*/
-     this.router.navigate(['/monitoring/', 'list']); 
+          this.router.navigate(['/monitoring/', 'list']);  
+          this.toastr.success('La planta ha sido añadida al monitoreo con éxito', '¡Planta añadida!');
+        },
+        err => this.toastr.error('La planta no pudo ser añadida al monitoreo, favor revisar los datos ingresados', 'ERROR')
+      )
   }
 
 }
