@@ -9,6 +9,16 @@
     <div class="container-fluid dateText">
         <p class="pt-4">{{today | date:'fullDate'}}</p>
     </div>
+    
+    <div *ngIf="hayReminders==0" class="container square">
+        <div class="card text-left">
+            <div class="card-body text-center mt-3">
+                <h4 class="card-title">No hay recordatorios próximos</h4>
+                <img class="card-img-top mt-2" src="../../../../assets/imgs/plant-icon.png" alt="">
+            </div>
+        </div>
+    </div>
+
     <div *ngFor="let reminder of reminders; index as i">
         <div class="row mt-4">
             <div class="card text-left">

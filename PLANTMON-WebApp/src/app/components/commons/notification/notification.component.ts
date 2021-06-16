@@ -10,6 +10,7 @@ import { Reminder } from "../../../models/reminder.model";
 export class NotificationComponent implements OnInit {
   reminders: Reminder[];
   today: number = Date.now();
+  hayReminders:number;
 
   constructor(
     private _reminderService: ReminderService
@@ -22,6 +23,7 @@ export class NotificationComponent implements OnInit {
     this._reminderService.getRemindersByUser(userActual).subscribe(res => {
       console.log(res);
       this.reminders = res;
+      this.hayReminders = res.length;
     });
   }
 

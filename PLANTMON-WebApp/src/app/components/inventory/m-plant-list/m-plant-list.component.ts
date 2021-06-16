@@ -10,6 +10,7 @@ import { Inventory, InventoryToEdit } from "../../../models/inventory.model";
 })
 export class MPlantListComponent implements OnInit {
   plantInventory: Inventory[];
+  hayPlants:number;
 
   constructor(
     private _inventoryService: InventoryService, 
@@ -19,9 +20,8 @@ export class MPlantListComponent implements OnInit {
   ngOnInit(): void {
     let userActual =  localStorage.getItem('username');
     this._inventoryService.getInventoryByUser(userActual).subscribe(res => {
-      console.log(res);
       this.plantInventory = res;
-      console.log(this.plantInventory );
+      this.hayPlants = res.length;
     });
   }
 

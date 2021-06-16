@@ -11,6 +11,7 @@ import { MonitoringService } from 'src/app/services/monitoring.service';
 export class SPlantListComponent implements OnInit {
  
   plantMonitoring: Monitoring[];
+  hayPlants:number;
 
   constructor(
     private _MonitoringService: MonitoringService, 
@@ -21,6 +22,7 @@ export class SPlantListComponent implements OnInit {
     let userActual =  localStorage.getItem('username');
     this._MonitoringService.getMonitoringByUser(userActual).subscribe(res => {
       this.plantMonitoring = res;
+      this.hayPlants = res.length;
     });
   }
 

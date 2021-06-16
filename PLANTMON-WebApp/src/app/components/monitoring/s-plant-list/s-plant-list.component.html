@@ -7,25 +7,33 @@
 </head>
 
 <body>
-    <div class="container p-5 square">
+    <div class="container p-5 mt-0 square">
         <div class="row">
-            <div *ngFor="let plant of plantMonitoring" class="col-lg-4 mb-5">
-                <div class="card text-left">
-                    <div class="text-center mt-1">
-                        <img class="card-img-top" src="../../../../assets/imgs/imgOval.png" alt="">
-                    </div>
-                    <div class="card-body text-center pt-0">
-                        <h4 class="card-title">{{plant.plantName}}</h4>
-                        <div class="btnGroup">
-                            <button class="btn mx-2 my-2 opt"  [routerLink]="['/monitoring/detail', plant.plantName]"><i class="fas fa-exclamation-circle"></i></button>
-                            <button class="btn mx-2 my-2 opt" [routerLink]="['/monitoring/edit', plant.plantName]"><i class="fas fa-pencil-alt"></i></button>
-                            <button class="btn mx-2 my-2 opt"><i class="fas fa-times-circle"></i></button>
+            <div *ngIf="hayPlants==0">
+                <app-no-plants-available></app-no-plants-available>
+                <div class="text-center">
+                    <button class="btn btnAdd px-5 py-4 m-5" [routerLink]="['/monitoring/add']"><i class="fas fa-plus"></i></button>
+                </div>
+            </div>
+            <div *ngIf="hayPlants!=0">
+                <div *ngFor="let plant of plantMonitoring" class="col-lg-4 mb-5">
+                    <div class="card text-left">
+                        <div class="text-center mt-1">
+                            <img class="card-img-top" src="../../../../assets/imgs/imgOval.png" alt="">
+                        </div>
+                        <div class="card-body text-center pt-0">
+                            <h4 class="card-title">{{plant.plantName}}</h4>
+                            <div class="btnGroup">
+                                <button class="btn mx-2 my-2 opt"  [routerLink]="['/monitoring/detail', plant.plantName]"><i class="fas fa-exclamation-circle"></i></button>
+                                <button class="btn mx-2 my-2 opt" [routerLink]="['/monitoring/edit', plant.plantName]"><i class="fas fa-pencil-alt"></i></button>
+                                <button class="btn mx-2 my-2 opt"><i class="fas fa-times-circle"></i></button>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-lg-4 text-center btnAddClass">
-                <button class="btn btnAdd px-5 py-4 m-5" [routerLink]="['/monitoring/add']"><i class="fas fa-plus"></i></button>
+                <div class="col-lg-4 text-center btnAddClass">
+                    <button class="btn btnAdd px-5 py-4 m-5" [routerLink]="['/monitoring/add']"><i class="fas fa-plus"></i></button>
+                </div>
             </div>
         </div>
     </div>
